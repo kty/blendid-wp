@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "alexanderalmstrom <alexander.almstrom@bizkithavas.se>",
   "license": "MIT",
+  "scripts": {
+    "start": "yarn run blendid",
+    "build": "yarn run blendid -- build"
+  },
   "dependencies": {
     "blendid": "^4.1.1"
   }
