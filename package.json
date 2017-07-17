@@ -1,7 +1,6 @@
 {
   "name": "blendid-starter",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "alexanderalmstrom <alexander.almstrom@bizkithavas.se>",
   "license": "MIT",
   "scripts": {
