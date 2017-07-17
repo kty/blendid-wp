@@ -1,13 +1,13 @@
 {
-  "name": "upstatement/timber-starter-theme",
+  "name": "blendid-starter",
   "description": "Starter theme to build a Timber theme",
   "type":"wordpress-theme",
   "minimum-stability" : "stable",
   "authors": [
-      {
-          "name": "jarednova",
-          "email": "jared@upstatement.com"
-      }
+    {
+      "name": "jarednova",
+      "email": "jared@upstatement.com"
+    }
   ],
   "repositories": [
     {
@@ -16,14 +16,22 @@
     }
   ],
   "extra": {
-  	"installer-paths": {
+    "installer-paths": {
       "../../plugins/{$name}/": [
         "wpackagist-plugin/*",
         "type:wordpress-plugin"
       ]
-  	}
-	},
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Blendid\\Starter\\": "inc/Blendid/"
+    }
+  },
   "require": {
-	  "wpackagist-plugin/timber-library": "0.22.*"
+    "php": ">=5.5.0",
+    "composer/installers": "~1.0",
+    "timber/timber": "1.1.7.1",
+    "Upstatement/routes": "*"
   }
 }
