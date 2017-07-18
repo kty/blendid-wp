@@ -1,0 +1,45 @@
+{% set counters = [] %}
+
+{% if post.get_field('blocks') %}
+
+  <div class="blocks">
+
+    {% for layout in post.get_field('blocks') %}
+      {% set row_layout = layout.acf_fc_layout %}
+
+      {% if counters[row_layout] is defined %}
+        {% set counters = counters|merge({(row_layout):(counters[row_layout] + counters[row_layout])}) %}
+      {% else %}
+        {% set counters = counters|merge({(row_layout):(1)}) %}
+      {% endif %}
+
+      {% if layout.acf_fc_layout == "content_block" %}
+
+        <section id="content-block-{{counters[row_layout]}}" class="block content-block {% if layout.full_width %}full-width{% endif %}">
+          {% include "blocks/content-block.twig" with {'layout': layout} %}
+        </section>
+
+      {% elseif layout.acf_fc_layout == "image_block" %}
+
+        <section id="image-block-{{counters[row_layout]}}" class="block image-block {% if layout.full_width %}full-width{% endif %}">
+          {% include "blocks/image-block.twig" with {'layout': layout} %}
+        </section>
+
+      {% elseif layout.acf_fc_layout == "slideshow_block" %}
+
+        <section id="slideshow-block-{{counters[row_layout]}}" class="block slideshow-block {% if layout.full_width %}full-width{% endif %}">
+          {% include "blocks/slideshow-block.twig" with {'layout': layout} %}
+        </section>
+
+      {% elseif layout.acf_fc_layout == "post_block" %}
+
+        <section id="post-block-{{counters[row_layout]}}" class="block post-block {% if layout.full_width %}full-width{% endif %}">
+          {% include "blocks/post-block.twig" with {'layout': layout} %}
+        </section>
+
+      {% endif %}
+    {% endfor %}
+
+  </div>
+
+{% endif %}
