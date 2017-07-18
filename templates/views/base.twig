@@ -5,18 +5,20 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		<header class="header">
+		<header id="header">
 			{% block header %}
 				<div class="container">
-					<a class="logo" href="{{site.url}}" rel="home">{{site.name}}</a>
-					<nav id="nav" class="nav" role="navigation">
-						{% include "menu.twig" with {'menu': menu.get_items} %}
-					</nav>
+					<div class="d-flex align-items-center justify-content-end">
+						<a class="logo mr-auto" href="{{site.url}}" rel="home">{{site.name}}</a>
+						<nav id="nav" class="nav" role="navigation">
+							{% include "menu.twig" with {'menu': menu.get_items} %}
+						</nav>
+					</div>
 				</div>
 			{% endblock %}
 		</header>
 
-		<main id="main" role="main" class="content-wrapper">
+		<main id="main" role="main">
 			<div class="container">
 				<div class="row">
 					<div id="content" class="content col-sm-8 {{sidebar_class}}">
