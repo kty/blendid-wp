@@ -8,6 +8,7 @@
     "build": "yarn run blendid -- build"
   },
   "dependencies": {
-    "blendid": "^4.1.1"
+    "blendid": "^4.1.1",
+    "bootstrap": "4.0.0-alpha.6"
   }
 }
