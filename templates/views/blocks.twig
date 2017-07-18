@@ -15,25 +15,31 @@
 
       {% if layout.acf_fc_layout == "content_block" %}
 
-        <section id="content-block-{{counters[row_layout]}}" class="block content-block {% if layout.full_width %}full-width{% endif %}">
+        <section id="content-block-{{counters[row_layout]}}" class="block content-block {% if layout.layout_settings %} {{layout.layout_settings|join(' ')}} {% endif %}">
           {% include "blocks/content-block.twig" with {'layout': layout} %}
+        </section>
+
+      {% elseif layout.acf_fc_layout == "title_block" %}
+
+        <section id="title-block-{{counters[row_layout]}}" class="block title-block">
+          {% include "blocks/title-block.twig" with {'layout': layout} %}
         </section>
 
       {% elseif layout.acf_fc_layout == "image_block" %}
 
-        <section id="image-block-{{counters[row_layout]}}" class="block image-block {% if layout.full_width %}full-width{% endif %}">
+        <section id="image-block-{{counters[row_layout]}}" class="block image-block">
           {% include "blocks/image-block.twig" with {'layout': layout} %}
         </section>
 
       {% elseif layout.acf_fc_layout == "slideshow_block" %}
 
-        <section id="slideshow-block-{{counters[row_layout]}}" class="block slideshow-block {% if layout.full_width %}full-width{% endif %}">
+        <section id="slideshow-block-{{counters[row_layout]}}" class="block slideshow-block">
           {% include "blocks/slideshow-block.twig" with {'layout': layout} %}
         </section>
 
       {% elseif layout.acf_fc_layout == "post_block" %}
 
-        <section id="post-block-{{counters[row_layout]}}" class="block post-block {% if layout.full_width %}full-width{% endif %}">
+        <section id="post-block-{{counters[row_layout]}}" class="block post-block">
           {% include "blocks/post-block.twig" with {'layout': layout} %}
         </section>
 

@@ -19,12 +19,12 @@
                 "596dc5033d768": {
                     "key": "596dc5033d768",
                     "name": "content_block",
-                    "label": "Content block",
+                    "label": "Innehållsblock",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_596dc52e1db1f",
-                            "label": "Title",
+                            "label": "Titel",
                             "name": "title",
                             "type": "text",
                             "instructions": "",
@@ -43,7 +43,7 @@
                         },
                         {
                             "key": "field_596dc5351db20",
-                            "label": "Columns",
+                            "label": "Kolumner",
                             "name": "columns",
                             "type": "repeater",
                             "instructions": "",
@@ -62,7 +62,7 @@
                             "sub_fields": [
                                 {
                                     "key": "field_596dc55e1db21",
-                                    "label": "Content",
+                                    "label": "Innehåll",
                                     "name": "content",
                                     "type": "wysiwyg",
                                     "instructions": "",
@@ -78,15 +78,170 @@
                                     "toolbar": "full",
                                     "media_upload": 1,
                                     "delay": 0
+                                },
+                                {
+                                    "key": "field_596e16c50ecbc",
+                                    "label": "Kolumnbredd",
+                                    "name": "size",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "1": "1",
+                                        "2": "2",
+                                        "3": "3",
+                                        "4": "4",
+                                        "5": "5",
+                                        "6": "6",
+                                        "7": "7",
+                                        "8": "8",
+                                        "9": "9",
+                                        "10": "10",
+                                        "11": "11",
+                                        "12": "12"
+                                    },
+                                    "default_value": [],
+                                    "allow_null": 1,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "return_format": "value",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_596df4785dae2",
+                                    "label": "Kolumn inställningar",
+                                    "name": "column_settings",
+                                    "type": "checkbox",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "p-0": "Ingen padding (kolumner)",
+                                        "flex-md-first": "Första kolumn",
+                                        "flex-md-last": "Sista kolumn"
+                                    },
+                                    "allow_custom": 0,
+                                    "save_custom": 0,
+                                    "default_value": [],
+                                    "layout": "horizontal",
+                                    "toggle": 0,
+                                    "return_format": "value"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_596e0c64b3d60",
+                            "label": "Inställningar kolumner",
+                            "name": "columns_settings",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "align-items-center": "Centrera kolumner horisontellt"
+                            },
+                            "allow_custom": 0,
+                            "save_custom": 0,
+                            "default_value": [],
+                            "layout": "horizontal",
+                            "toggle": 0,
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_596e0ae90776c",
+                            "label": "Inställningar block",
+                            "name": "layout_settings",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "full-width": "Fullbredd",
+                                "p-0": "Ingen padding (block)"
+                            },
+                            "allow_custom": 0,
+                            "save_custom": 0,
+                            "default_value": [],
+                            "layout": "horizontal",
+                            "toggle": 0,
+                            "return_format": "value"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "596df912f52ff": {
+                    "key": "596df912f52ff",
+                    "name": "title_block",
+                    "label": "Titelblock",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_596df91af5300",
+                            "label": "Titel",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_596df91ff5301",
+                            "label": "Undertitel",
+                            "name": "subtitle",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
                     "max": ""
                 }
             },
-            "button_label": "Lägg till rad",
+            "button_label": "Lägg till block",
             "min": "",
             "max": ""
         }
@@ -108,5 +263,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1500366239
+    "modified": 1500387096
 }

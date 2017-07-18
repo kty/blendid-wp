@@ -1,18 +1,20 @@
 <div class="container">
-  <div class="row">
-    {% if layout.title or layout.subtitle %}
-      <div class="mb-3 col-lg-8 col-md-9 col-center text-sm-center">
+  {% if layout.title %}
+    <div class="row">
+      <div class="col col-center text-center">
         {% if layout.title %}
           <h2 class="heading">{{layout.title}}</h2>
         {% endif %}
       </div>
-    {% endif %}
-    {% if layout.columns %}
+    </div>
+  {% endif %}
+  {% if layout.columns %}
+    <div class="row {% if layout.columns_settings %} {{layout.columns_settings|join(' ')}} {% endif %}">
       {% for column in layout.columns %}
-        <div class="col-md-{% if column.size %}{{column.size}}{% else %}{{ 12 / loop.length }}{% endif %}">
+        <div class="col-md-{% if column.size %}{{column.size}}{% else %}{{ 12 / loop.length }}{% endif %} {% if column.column_settings %} {{column.column_settings|join(' ')}} {% endif %}">
           {{column.content}}
         </div>
       {% endfor %}
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
 </div>

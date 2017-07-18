@@ -1,0 +1,12 @@
+.content-block {
+  &.full-width {
+    [class^="col"] {
+      padding: 5% 10%;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

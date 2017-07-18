@@ -48,3 +48,8 @@ add_filter('acf/settings/load_json', __NAMESPACE__ . '\acf_json_load_point');
 
 // Remove the plugin credit/notice from The SEO Framework
 add_filter('the_seo_framework_indicator', '__return_false');
+
+function filter_ptags_on_acf_images($acfcontent){
+  return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(\/a>)?\s*<\/p>/iU', '\1\2\3', $acfcontent);
+}
+add_filter('acf_the_content', __NAMESPACE__ . '\filter_ptags_on_acf_images');
