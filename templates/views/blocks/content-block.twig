@@ -1,16 +1,18 @@
 <div class="container">
-  {% if layout.title or layout.subtitle %}
-    <div class="mb-3 col-lg-8 col-md-9 col-centered text-xs-center">
-      {% if layout.title %}
-        <h2 class="heading">{{layout.title}}</h2>
-      {% endif %}
-    </div>
-  {% endif %}
-  {% if layout.columns %}
-    {% for column in layout.columns %}
-      <div class="col-md-{% if column.size %}{{column.size}}{% else %}{{ 12 / loop.length }}{% endif %}">
-        {{column.content}}
+  <div class="row">
+    {% if layout.title or layout.subtitle %}
+      <div class="mb-3 col-lg-8 col-md-9 col-centered text-xs-center">
+        {% if layout.title %}
+          <h2 class="heading">{{layout.title}}</h2>
+        {% endif %}
       </div>
-    {% endfor %}
-  {% endif %}
+    {% endif %}
+    {% if layout.columns %}
+      {% for column in layout.columns %}
+        <div class="col-md-{% if column.size %}{{column.size}}{% else %}{{ 12 / loop.length }}{% endif %}">
+          {{column.content}}
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
 </div>
