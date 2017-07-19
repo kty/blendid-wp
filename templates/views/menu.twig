@@ -1,8 +1,8 @@
 {% if menu %}
-	<ul {% if sub %}class="sub"{% endif %}>
+	<ul {% if sub %}class="dropdown-menu" aria-labelledby="supportedContentDropdown"{% endif %}>
 	{% for item in menu %}
-		<li class="nav-item {% if sub %}nav-item-child{% endif %} {{ item.classes | join(' ') }}">
-			<a class="nav-link {% if sub %}nav-link-child{% endif %}" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+		<li class="nav-item {% if item.get_children %}nav-item-child dropdown{% endif %} {{ item.classes | join(' ') }}">
+			<a class="nav-link {% if item.get_children %}nav-link-child dropdown-toggle{% endif %}" {% if item.get_children %} id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" {% endif %} href="{{ item.link }}">{{ item.title }}</a>
 			{% include "menu.twig" with {'menu': item.get_children, 'sub': true} %}
 		</li>
 	{% endfor %}

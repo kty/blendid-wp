@@ -561,8 +561,8 @@ $dropdown-min-width:             10rem;
 $dropdown-padding-y:             .5rem;
 $dropdown-margin-top:            .125rem;
 $dropdown-bg:                    $white;
-$dropdown-border-color:          rgba($black,.15);
-$dropdown-border-width:          $border-width;
+$dropdown-border-color:          transparent;
+$dropdown-border-width:          0;
 $dropdown-divider-bg:            $gray-lighter;
 $dropdown-box-shadow:            0 .5rem 1rem rgba($black,.175);
 

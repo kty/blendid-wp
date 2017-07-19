@@ -12,21 +12,17 @@
     height: 100%;
     overflow: auto;
     z-index: 800;
+    text-align: center;
     backface-visibility: hidden;
     transition: all 0.3s;
+    -webkit-overflow-scrolling: touch;
     @include position(fixed, 0 null 0 null);
 
     ul {
       width: 100%;
       list-style: none;
       margin: 0;
-      padding: 1.875em;
-      text-align: center;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .sub {
-      display: none;
+      padding: 0;
     }
 
     .nav-item {
@@ -36,12 +32,6 @@
       &.current-menu-item {
         > a {
           color: $brand-primary;
-        }
-      }
-
-      &.open {
-        .sub {
-          display: block;
         }
       }
 
