@@ -1,5 +1,9 @@
 body {
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+p {
+  margin-bottom: $spacer * 1.5;
 }
 
 img {
