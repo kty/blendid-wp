@@ -1,63 +1,46 @@
-let timer;
+$(function() {
 
-$('#header .dropdown').on('mouseenter', function() {
-  let dropdown = $(this)
+  let timer;
 
-  clearTimeout(timer)
+  $('#header .dropdown').on('mouseenter', function() {
+    let dropdown = $(this)
 
-  if ($('.dropdown.show').length > 0) {
-    $('.dropdown').removeClass('show')
-  }
+    clearTimeout(timer)
 
-  if (!dropdown.hasClass('show')) {
-    dropdown.addClass('show')
-  }
-})
-
-$('#header .dropdown').on('mouseleave', function() {
-  var dropdown = $(this)
-
-  timer = setTimeout(function() {
-    if (dropdown.hasClass('show')) {
-      dropdown.removeClass('show')
+    if ($('#header .dropdown.show').length > 0) {
+      $('#header .dropdown').removeClass('show')
     }
-  }, 600)
-})
 
-$('#header .dropdown-toggle').on('click', function(e) {
-  e.preventDefault()
-  e.stopPropagation()
-})
-
-$('.offcanvas .nav-offcanvas .nav-item.menu-item-has-children').on('click', function(e) {
-  let target = $(e.target),
-      nav_item = $(this),
-      nav_sub = nav_item.find('.sub')
-
-  if (!target.is('.nav-link-child')) {
-    e.preventDefault()
-
-    if (nav_item.hasClass('show')) {
-      nav_item.removeClass('show')
-    } else {
-      $('.offcanvas .nav-offcanvas .nav-item').removeClass('show')
-      nav_item.addClass('show')
+    if (!dropdown.hasClass('show')) {
+      dropdown.addClass('show')
     }
-  }
-})
+  })
 
-if ($('.offcanvas .nav-offcanvas .nav-item.menu-item-has-children').hasClass('current-menu-parent')) {
-  $('.offcanvas .nav-offcanvas .nav-item.current-menu-parent').addClass('show')
-}
+  $('#header .dropdown').on('mouseleave', function() {
+    var dropdown = $(this)
 
-$('[data-toggle="offcanvas"]').on('click', function() {
-  $('html').toggleClass('state--offcanvas')
-})
+    timer = setTimeout(function() {
+      if (dropdown.hasClass('show')) {
+        dropdown.removeClass('show')
+      }
+    }, 600)
+  })
 
-$('#main').on('click', function(e) {
-  if ($('html').hasClass('state--offcanvas')) {
+  $('#header .dropdown-toggle').on('click', function(e) {
     e.preventDefault()
-    
+    e.stopPropagation()
+  })
+
+  $('[data-toggle="offcanvas"]').on('click', function() {
     $('html').toggleClass('state--offcanvas')
-  }
-})
+  })
+
+  $('#main').on('click', function(e) {
+    if ($('html').hasClass('state--offcanvas')) {
+      e.preventDefault()
+      
+      $('html').toggleClass('state--offcanvas')
+    }
+  })
+
+});
