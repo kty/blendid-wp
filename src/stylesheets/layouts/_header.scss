@@ -1,5 +1,14 @@
 #header {
+  width: 100%;
   padding: 1em 0;
+  @include position(fixed, 0 null null null);
+  z-index: 1000;
+
+  .container {
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+  }
 
   a {
     color: inherit;
@@ -24,6 +33,46 @@
           padding: 0.5em;
         }
       }
+    }
+  }
+
+  .navbar-toggler {
+    cursor: pointer;
+    z-index: 1000;
+    outline: none;
+
+    &:before,
+    &:after {
+      display: block;
+      content: "";
+      background: #000;
+      height: 2px;
+      margin: 6px 0;
+      transition: transform 0.3s;
+    }
+
+    &:before {
+      width: 15px;
+
+      .state--offcanvas & {
+        width: 20px;
+        transform: rotate(45deg);
+        transform-origin: 4px 4px;
+      }
+    }
+
+    &:after {
+      width: 25px;
+
+      .state--offcanvas & {
+        width: 20px;
+        transform: rotate(-45deg);
+        transform-origin: 6px 0;
+      }
+    }
+
+    .state--offcanvas & {
+
     }
   }
 }

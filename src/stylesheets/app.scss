@@ -1,6 +1,8 @@
 @import "bootstrap_settings";
 
-@import "bootstrap/scss/bootstrap";
+@import "bootstrap";
+@import "bourbon";
+@import "slick.scss";
 
 @import "base/helpers";
 @import "base/typography";
@@ -9,6 +11,8 @@
 @import "layouts/main";
 @import "layouts/footer";
 @import "layouts/blocks";
+
+@import "components/offcanvas";
 
 @import "blocks/content_block";
 @import "blocks/title_block";
