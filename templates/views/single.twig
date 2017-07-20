@@ -3,7 +3,7 @@
 {% block content %}
 	<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
 		<header class="article-header">
-			<figure>
+			<figure class="article-image">
 				<img src="{{ post.thumbnail.src|resize(1280, 720) }}">
 			</figure>
 		</header>
