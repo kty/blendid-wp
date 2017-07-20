@@ -24,11 +24,7 @@
 				{% endif %}
 			</div>
 
-			{% if post.comment_status == "closed" %}
-				<p>Comments for this post are closed</p>
-			{% else %}
-				{% include "comment-form.twig" %}
-			{% endif %}
+			{% include "comment-form.twig" %}
 		</section>
 	</article>
 {% endblock %}

@@ -1,6 +1,27 @@
+.comment-form {
+  margin-top: $spacer * 2;
+}
+
 .comments {
+  .comment-author {
+    margin-bottom: $spacer / 2;
+  }
+
+  .comment-content {
+    p {
+      margin-bottom: $spacer;
+    }
+  }
+
   .blog-comment {
+    margin-top: $spacer * 2;
+
+    > .comment-box {
+      margin-left: $spacer * 2;
+    }
+
     > .comment-form {
+      margin-top: $spacer;
       display: none;
     }
   }
