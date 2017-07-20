@@ -2,8 +2,12 @@
 
 {% block content %}
 	<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-		<img src="{{ post.thumbnail.src|resize(1280, 720) }}">
-		
+		<header class="article-header">
+			<figure>
+				<img src="{{ post.thumbnail.src|resize(1280, 720) }}">
+			</figure>
+		</header>
+
 		<section class="article-content">
 			<h1>{{ post.title }}</h1>
 			<p class="article-author">
