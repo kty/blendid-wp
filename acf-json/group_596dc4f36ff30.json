@@ -525,6 +525,45 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "59707295c8ac3": {
+                    "key": "59707295c8ac3",
+                    "name": "post_block",
+                    "label": "Post block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5970729fc8ac4",
+                            "label": "Inlägg",
+                            "name": "posts",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "post"
+                            ],
+                            "taxonomy": [],
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
+                            "elements": [
+                                "featured_image"
+                            ],
+                            "min": "",
+                            "max": "",
+                            "return_format": "object"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Lägg till block",
@@ -549,5 +588,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1500540080
+    "modified": 1500541655
 }
