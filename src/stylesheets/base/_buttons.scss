@@ -1,0 +1,11 @@
+button,
+input[type="button"],
+.btn {
+  outline: none;
+
+  &:focus,
+  &:active,
+  &:hover {
+    outline: none;
+  }
+}
