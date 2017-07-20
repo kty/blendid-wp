@@ -30,7 +30,8 @@ module.exports = {
       "includePaths": [
         "./node_modules/bourbon/app/assets/stylesheets",
         "./node_modules/bootstrap/scss",
-        "./node_modules/slick-carousel/slick"
+        "./node_modules/slick-carousel/slick",
+        "./node_modules/font-awesome/scss"
       ]
     }
   },
