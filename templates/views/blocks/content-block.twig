@@ -1,14 +1,14 @@
-<div class="container">
-  {% if layout.title %}
-    <div class="row">
-      <div class="col col-center text-center">
-        {% if layout.title %}
-          <h2 class="heading">{{layout.title}}</h2>
-        {% endif %}
+{% if layout.columns %}
+  <div class="container">
+    {% if layout.title %}
+      <div class="row">
+        <div class="col col-center text-center">
+          {% if layout.title %}
+            <h2 class="heading">{{layout.title}}</h2>
+          {% endif %}
+        </div>
       </div>
-    </div>
-  {% endif %}
-  {% if layout.columns %}
+    {% endif %}
     <div class="row {% if layout.columns_settings %} {{layout.columns_settings|join(' ')}} {% endif %}">
       {% for column in layout.columns %}
         <div class="col-md-{% if column.size %}{{column.size}}{% else %}{{ 12 / loop.length }}{% endif %} {% if column.column_settings %} {{column.column_settings|join(' ')}} {% endif %}">
@@ -16,5 +16,5 @@
         </div>
       {% endfor %}
     </div>
-  {% endif %}
-</div>
+  </div>
+{% endif %}

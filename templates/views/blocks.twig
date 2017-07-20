@@ -25,10 +25,10 @@
           {% include "blocks/title-block.twig" with {'layout': layout} %}
         </section>
 
-      {% elseif layout.acf_fc_layout == "image_block" %}
+      {% elseif layout.acf_fc_layout == "gallery_block" %}
 
-        <section id="image-block-{{counters[row_layout]}}" class="block image-block">
-          {% include "blocks/image-block.twig" with {'layout': layout} %}
+        <section id="gallery-block-{{counters[row_layout]}}" class="block gallery-block">
+          {% include "blocks/gallery-block.twig" with {'layout': layout} %}
         </section>
 
       {% elseif layout.acf_fc_layout == "slideshow_block" %}

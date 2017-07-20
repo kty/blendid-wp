@@ -470,6 +470,61 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "59706bf585ea9": {
+                    "key": "59706bf585ea9",
+                    "name": "gallery_block",
+                    "label": "Galleriblock",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_59706bfa85eaa",
+                            "label": "Bilder",
+                            "name": "images",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "row",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_59706c0285eab",
+                                    "label": "Bild",
+                                    "name": "image",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Lägg till block",
@@ -494,5 +549,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1500538295
+    "modified": 1500540080
 }

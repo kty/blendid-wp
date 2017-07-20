@@ -1,12 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col col-center text-center">
-      {% if layout.title %}
-        <h2 class="title mb-2">{{layout.title}}</h2>
-      {% endif %}
-      {% if layout.subtitle %}
-        <h3 class="h4 subtitle">{{layout.subtitle}}</h3>
-      {% endif %}
+{% if layout.title or layout.subtitle %}
+  <div class="container">
+    <div class="row">
+      <div class="col col-center text-center">
+        {% if layout.title %}
+          <h2 class="title mb-2">{{layout.title}}</h2>
+        {% endif %}
+        {% if layout.subtitle %}
+          <h3 class="h4 subtitle">{{layout.subtitle}}</h3>
+        {% endif %}
+      </div>
     </div>
   </div>
-</div>
+{% endif %}

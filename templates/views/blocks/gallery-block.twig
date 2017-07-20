@@ -1,0 +1,15 @@
+{% if layout.images %}
+  <div class="container">
+    <div class="row">
+      {% for item in layout.images %}
+        <div class="col-md-{% if column.size %}{{column.size}}{% else %}{{ 12 / loop.length }}{% endif %}">
+          {% if item.size %}
+            <img src="{{item.image.url|resize(1280, 1280)}}" alt="{{item.image.title}}">
+          {% else %}
+            <img src="{{item.image.url|resize(1920)}}" alt="{{item.image.title}}">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
