@@ -7,5 +7,6 @@ import './modules'
 
 require('./components/nav')
 require('./components/slider')
+require('./components/comments')
 
 console.log(`app.js has loaded!`)

@@ -26,14 +26,14 @@
 			<main id="main" role="main">
 				<div class="container">
 					<div class="row">
-						<div id="content" class="content col-sm-8 {{sidebar_class}}">
+						<div id="content" class="content {% if sidebar %} col-sm-9 {% else %} col-sm-12 {% endif %} {{sidebar_class}}">
 							{% block content %}
 								Sorry, no content
 							{% endblock %}
 						</div>
 
 						{% if sidebar %}
-							<aside id="aside" class="aside col-sm-4">
+							<aside id="aside" class="aside col-sm-3">
 								{{sidebar}}
 							</aside>
 						{% endif %}
