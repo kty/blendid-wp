@@ -1,4 +1,5 @@
 #header {
+  background: $white;
   width: 100%;
   padding: 1em 0;
   @include position(fixed, 0 null null null);
@@ -27,7 +28,7 @@
 
       li {
         display: inline-block;
-        margin-left: $spacer * 0.5;
+        margin-left: $spacer / 2;
 
         a {
           display: block;

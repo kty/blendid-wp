@@ -1,0 +1,5 @@
+{% macro sprite(icons_path, id, viewBox = '0 0 1 1', classes) %}
+  <span class='sprite -{{id}} {{classes}}'>
+    <svg viewBox="{{viewBox}}"><use xlink:href='{{icons_path}}#{{id}}' /></use></svg>
+  </span>
+{% endmacro %}

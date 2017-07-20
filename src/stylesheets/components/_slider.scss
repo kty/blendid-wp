@@ -36,12 +36,6 @@
   z-index: 100;
   cursor: pointer;
   font-size: 1.5em;
-  outline: none;
-
-  &:hover,
-  &:focus {
-    outline: none;
-  }
 
   @include position(absolute, 50% null null null);
   

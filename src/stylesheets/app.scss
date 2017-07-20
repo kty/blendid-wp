@@ -4,8 +4,11 @@
 @import "bourbon";
 @import "slick.scss";
 
+@import "fontawesome/font-awesome";
+
 @import "base/helpers";
 @import "base/typography";
+@import "base/buttons";
 
 @import "layouts/header";
 @import "layouts/main";
