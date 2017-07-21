@@ -61,13 +61,45 @@
                             "button_label": "",
                             "sub_fields": [
                                 {
+                                    "key": "field_5971b4949b16d",
+                                    "label": "Typ",
+                                    "name": "type",
+                                    "type": "radio",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "content": "Innehåll",
+                                        "image": "Bild"
+                                    },
+                                    "allow_null": 0,
+                                    "other_choice": 0,
+                                    "save_other_choice": 0,
+                                    "default_value": "content",
+                                    "layout": "vertical",
+                                    "return_format": "value"
+                                },
+                                {
                                     "key": "field_596dc55e1db21",
                                     "label": "Innehåll",
                                     "name": "content",
                                     "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5971b4949b16d",
+                                                "operator": "==",
+                                                "value": "content"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -78,6 +110,38 @@
                                     "toolbar": "full",
                                     "media_upload": 1,
                                     "delay": 0
+                                },
+                                {
+                                    "key": "field_5971b4859b16c",
+                                    "label": "Bild",
+                                    "name": "image",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5971b4949b16d",
+                                                "operator": "==",
+                                                "value": "image"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
                                 },
                                 {
                                     "key": "field_596e16c50ecbc",
@@ -529,7 +593,7 @@
                 "59707295c8ac3": {
                     "key": "59707295c8ac3",
                     "name": "post_block",
-                    "label": "Post block",
+                    "label": "Inläggsblock",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -588,5 +652,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1500541655
+    "modified": 1500624419
 }

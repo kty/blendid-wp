@@ -11,7 +11,7 @@
 		<section class="article-content">
 			<h1>{{ post.title }}</h1>
 			<p class="article-author">
-				<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
+				<a href="{{post.author.path}}">{{ post.author.name }}</a> {{ post.date }}
 			</p>
 			<div class="article-body">
 				{{post.content}}
