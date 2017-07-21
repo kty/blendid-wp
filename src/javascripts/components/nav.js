@@ -6,9 +6,7 @@ class Nav extends App {
   }
 
   init() {
-    console.log('init nav')
-
-    let timer
+    let timer = null
     
     $('#header .dropdown').on('mouseenter', function() {
       let dropdown = $(this)

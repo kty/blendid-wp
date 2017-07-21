@@ -6,7 +6,7 @@ class Header extends App {
   }
 
   init() {
-    console.log('init header')
+    
   }
 }
 

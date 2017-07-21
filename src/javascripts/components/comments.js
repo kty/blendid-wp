@@ -6,8 +6,6 @@ class Comments extends App {
   }
 
   init() {
-    console.log('init comments')
-
     $('.comment-reply').on('click', function(event) {
       event.preventDefault();
 
