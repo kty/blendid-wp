@@ -1,46 +1,56 @@
-$(function() {
+import App from './App'
 
-  let timer;
+class Nav extends App {
+  constructor(props) {
+    super(props)
+  }
 
-  $('#header .dropdown').on('mouseenter', function() {
-    let dropdown = $(this)
+  init() {
+    console.log('init nav')
 
-    clearTimeout(timer)
+    let timer
+    
+    $('#header .dropdown').on('mouseenter', function() {
+      let dropdown = $(this)
 
-    if ($('#header .dropdown.show').length > 0) {
-      $('#header .dropdown').removeClass('show')
-    }
+      clearTimeout(timer)
 
-    if (!dropdown.hasClass('show')) {
-      dropdown.addClass('show')
-    }
-  })
-
-  $('#header .dropdown').on('mouseleave', function() {
-    var dropdown = $(this)
-
-    timer = setTimeout(function() {
-      if (dropdown.hasClass('show')) {
-        dropdown.removeClass('show')
+      if ($('#header .dropdown.show').length > 0) {
+        $('#header .dropdown').removeClass('show')
       }
-    }, 600)
-  })
 
-  $('#header .dropdown-toggle').on('click', function(e) {
-    e.preventDefault()
-    e.stopPropagation()
-  })
+      if (!dropdown.hasClass('show')) {
+        dropdown.addClass('show')
+      }
+    })
 
-  $('[data-toggle="offcanvas"]').on('click', function() {
-    $('html').toggleClass('state--offcanvas')
-  })
+    $('#header .dropdown').on('mouseleave', function() {
+      let dropdown = $(this)
 
-  $('#main').on('click', function(e) {
-    if ($('html').hasClass('state--offcanvas')) {
+      timer = setTimeout(function() {
+        if (dropdown.hasClass('show')) {
+          dropdown.removeClass('show')
+        }
+      }, 600)
+    })
+
+    $('#header .dropdown-toggle').on('click', function(e) {
       e.preventDefault()
-      
-      $('html').toggleClass('state--offcanvas')
-    }
-  })
+      e.stopPropagation()
+    })
 
-});
+    $('[data-toggle="offcanvas"]').on('click', function() {
+      $('html').toggleClass('state--offcanvas')
+    })
+
+    $('#main').on('click', function(e) {
+      if ($('html').hasClass('state--offcanvas')) {
+        e.preventDefault()
+        
+        $('html').toggleClass('state--offcanvas')
+      }
+    })
+  }
+}
+
+export default Nav

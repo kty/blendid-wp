@@ -5,8 +5,12 @@ import slick from 'slick-carousel'
 
 import './modules'
 
-require('./components/nav')
-require('./components/slider')
-require('./components/comments')
+import Header from './components/Header'
+import Slider from './components/Slider'
+import Nav from './components/Nav'
+import Comments from './components/Comments'
 
-console.log(`app.js has loaded!`)
+new Header()
+new Slider()
+new Nav()
+new Comments()

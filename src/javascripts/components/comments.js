@@ -1,28 +1,40 @@
-$(function() {
-  $('.comment-reply').on('click', function(event) {
-    event.preventDefault();
+import App from './App'
 
-    let reply_btn = $(this)
-    let comment = $(this).parent('.blog-comment')
-    let form = comment.children('.comment-form')
+class Comments extends App {
+  constructor(props) {
+    super(props)
+  }
 
-    $('.blog-comment .comment-reply').removeClass('hide')
-    $('.blog-comment .comment-form').removeClass('show')
+  init() {
+    console.log('init comments')
 
-    reply_btn.addClass('hide')
-    form.addClass('show')
-  })
+    $('.comment-reply').on('click', function(event) {
+      event.preventDefault();
 
-  $('.comment-cancel').on('click', function(event) {
-    event.preventDefault();
+      let reply_btn = $(this)
+      let comment = $(this).parent('.blog-comment')
+      let form = comment.children('.comment-form')
 
-    let comment = $(this).parents('.blog-comment')
-    let form = comment.children('.comment-form')
-    let reply_btn = comment.find('.comment-reply')
+      $('.blog-comment .comment-reply').removeClass('hide')
+      $('.blog-comment .comment-form').removeClass('show')
 
-    $('.blog-comment .comment-form').removeClass('show')
+      reply_btn.addClass('hide')
+      form.addClass('show')
+    })
 
-    reply_btn.removeClass('hide')
-    form.removeClass('show')
-  })
-});
+    $('.comment-cancel').on('click', function(event) {
+      event.preventDefault();
+
+      let comment = $(this).parents('.blog-comment')
+      let form = comment.children('.comment-form')
+      let reply_btn = comment.find('.comment-reply')
+
+      $('.blog-comment .comment-form').removeClass('show')
+
+      reply_btn.removeClass('hide')
+      form.removeClass('show')
+    })
+  }
+}
+
+export default Comments
