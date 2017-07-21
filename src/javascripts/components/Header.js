@@ -1,8 +1,6 @@
-import App from './App'
-
-class Header extends App {
+class Header {
   constructor(props) {
-    super(props)
+
   }
 
   init() {

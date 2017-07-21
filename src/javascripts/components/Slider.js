@@ -1,22 +1,21 @@
-import App from './App'
+class Slider {
+  args = {
+    prevArrow: '<button type="button" class="slick-arrow slick-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
+    nextArrow: '<button type="button" class="slick-arrow slick-next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
+    infinite: true,
+    dots: true,
+    pauseOnHover: true
+  }
 
-class Slider extends App {
-  constructor(props) {
-    super(props)
+  constructor(el, args) {
+    this.el = $(el)
+    this.args = args == undefined ? this.args : {}
+
+    this.init()
   }
 
   init() {
     let self = this
-
-    this.element = $('.slideshow-block .slider')
-
-    this.args = {
-      prevArrow: '<button type="button" class="slick-arrow slick-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-      nextArrow: '<button type="button" class="slick-arrow slick-next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
-      infinite: true,
-      dots: true,
-      pauseOnHover: true
-    }
 
     this.setColor = function(slide) {
       if (slide.hasClass('white')) {
@@ -26,7 +25,7 @@ class Slider extends App {
       }
     }
 
-    this.element.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    this.el.on('beforeChange', function(event, slick, currentSlide, nextSlide){
       self.slider = slick.$slider
       var slide = $(slick.$slides[nextSlide])
 
@@ -38,7 +37,7 @@ class Slider extends App {
       self.setColor(slide)
     })
 
-    this.element.slick(this.args)
+    this.el.slick(this.args)
   }
 }
 

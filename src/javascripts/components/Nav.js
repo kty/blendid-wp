@@ -1,8 +1,6 @@
-import App from './App'
-
-class Nav extends App {
+class Nav {
   constructor(props) {
-    super(props)
+    
   }
 
   init() {

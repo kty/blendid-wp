@@ -1,8 +1,6 @@
-import App from './App'
-
-class Comments extends App {
+class Comments {
   constructor(props) {
-    super(props)
+    
   }
 
   init() {

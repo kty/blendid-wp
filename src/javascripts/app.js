@@ -11,6 +11,7 @@ import Nav from './components/Nav'
 import Comments from './components/Comments'
 
 new Header()
-new Slider()
 new Nav()
 new Comments()
+
+new Slider('.slideshow-block .slider')
