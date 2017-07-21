@@ -3,7 +3,7 @@
 	<div class="comment-content">{{comment.comment_content|wpautop}}</div>
 
 	{% if comment.comment_parent == false %}
-		<a href="#comment-{{comment.ID}}" class="btn btn-primary comment-reply">Reply</a>
+		<a href="#comment-{{comment.ID}}" class="btn btn-secondary comment-reply">Reply</a>
 		{% include "comment-form.twig" with {'comment' : comment} %}
 	{% endif %}
 
