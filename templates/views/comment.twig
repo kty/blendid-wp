@@ -4,9 +4,8 @@
 
 	{% if comment.comment_parent == false %}
 		<a href="#comment-{{comment.ID}}" class="btn btn-primary comment-reply">Reply</a>
+		{% include "comment-form.twig" with {'comment' : comment} %}
 	{% endif %}
-
-	{% include "comment-form.twig" with {'comment' : comment} %}
 
 	<section class="comment-box">
 		<!-- child comments -->
