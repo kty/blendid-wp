@@ -45,7 +45,7 @@ add_action( 'wp_head', __NAMESPACE__ . '\track_post_views' );
 
 // Add row shortcode
 function row_shortcode($atts, $content = null) {
-  $content = str_replace(array('<br />', '<br>'), '', $content);
+  $content = strip_tags($content);
 
   return '<div class="row">' . do_shortcode($content) . '</div>';
 }
@@ -54,32 +54,29 @@ add_shortcode( 'row', __NAMESPACE__ . '\row_shortcode' );
 
 // Add column shortcode
 function column_shortcode($atts, $content = null) {
-  $content = str_replace(array('<br />', '<br>'), '', $content);
+  $content = strip_tags($content);
   
-  return '<div class="col-sm-' . $atts['size'] . '">' . do_shortcode($content) . '</div>';
+  return '<div class="mb-4 col-sm-' . $atts['size'] . '">' . do_shortcode($content) . '</div>';
 }
 
 add_shortcode( 'col', __NAMESPACE__ . '\column_shortcode' );
 
 // Add product shortcode
 function product_shortcode($atts) {
-  ob_start();
-  ?>
-  <div class="product">
-    <a href="<?php echo $atts['link']; ?>">
-      <img src="<?php echo $atts['image']; ?>">
-      <p><?php echo $atts['text']; ?></p>
-      <button class="btn btn-primary"><?php _e('See product', 'blendid'); ?></button>
-    </a>
-  </div>
-  <?php
-  return ob_get_clean();
+  $url = esc_url($atts['url']);
+  $image = esc_url($atts['image']);
+  $text = sanitize_text_field($atts['text']);
+
+  return Timber::compile( 'shortcodes/product.twig', array('url' => $url, 'image' => $image, 'text' => $text) );
 }
 
 add_shortcode( 'product', __NAMESPACE__ . '\product_shortcode' );
 
-function button_shortcode($atts, $content = null) {
-  return '<a class="btn btn-primary" href="' . $atts['link'] . '">' . $content . '</a>';
+function button_shortcode($atts, $text = null) {
+  $url = esc_url($atts['url']);
+  $text = sanitize_text_field($text);
+
+  return Timber::compile( 'shortcodes/button.twig', array('url' => $url, 'text' => $text) );
 }
 
 add_shortcode('button', __NAMESPACE__ . '\button_shortcode');
