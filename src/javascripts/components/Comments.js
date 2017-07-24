@@ -17,19 +17,6 @@ class Comments {
       reply_btn.addClass('hide')
       form.addClass('show')
     })
-
-    $('.comment-cancel').on('click', function(event) {
-      event.preventDefault();
-
-      let comment = $(this).parents('.blog-comment')
-      let form = comment.children('.comment-form')
-      let reply_btn = comment.find('.comment-reply')
-
-      $('.blog-comment .comment-form').removeClass('show')
-
-      reply_btn.removeClass('hide')
-      form.removeClass('show')
-    })
   }
 }
 
