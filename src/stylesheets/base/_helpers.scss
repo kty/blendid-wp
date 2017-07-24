@@ -28,18 +28,6 @@
   background-repeat: repeat-x;
   background-position: center;
   background-size: cover;
-
-  @include media-breakpoint-up(xl) {
-    padding-top: 45%;
-  }
-
-  @include media-breakpoint-up(xxl) {
-    padding-top: 40%;
-  }
-
-  @include media-breakpoint-up(xxl) {
-    padding-top: 35%;
-  }
 }
 
 .show {

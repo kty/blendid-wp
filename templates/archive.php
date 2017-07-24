@@ -14,6 +14,8 @@
  * @since   Timber 0.2
  */
 
+$queried_object = get_queried_object();
+
 $templates = array( 'archive.twig', 'index.twig' );
 
 $context = Timber::get_context();
@@ -35,6 +37,34 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
+$context['posts_per_page'] = intval(get_option('posts_per_page'));
+$context['paged'] = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+$args = array(
+  'post_type' => 'post',
+  'posts_per_page' => $context['posts_per_page'],
+  'paged' => $context['paged']
+);
+
+if ( is_category() || is_tag() ) {
+  $context['taxonomy'] = $queried_object->taxonomy;
+  $context['term_id'] = $queried_object->term_id;
+
+  $args['tax_query'] = array(
+    array(
+      'taxonomy' => $queried_object->taxonomy,
+      'field' => 'term_id',
+      'terms' => array($queried_object->term_id)
+    )
+  );
+}
+
 $context['posts'] = Timber::get_posts();
+
+if (count($context['posts']) >= $context['posts_per_page']) {
+  $context['have_posts_next'] = true;
+} else {
+  $context['have_posts_next'] = false;
+}
 
 Timber::render( $templates, $context );

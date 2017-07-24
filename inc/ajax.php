@@ -66,12 +66,12 @@ function load_posts() {
 
     foreach ($posts as $post) {
       $context['post'] = $post;
-      $post->class .= " col-xs-12 col-md-6 col-lg-4";
+      $post->class .= " col-md-6 col-lg-4";
 
       $count++;
 
       if ($count <= $posts_per_page) {
-        Timber::render('tease-post.twig', $context);
+        Timber::render('tease-' . $post->post_type . '.twig', $context);
       }
     }
 

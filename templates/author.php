@@ -11,10 +11,29 @@
 global $wp_query;
 
 $context = Timber::get_context();
-$context['posts'] = Timber::get_posts();
+  
+$context['posts_per_page'] = intval(get_option('posts_per_page'));
+$context['paged'] = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+$args = array(
+  'post_type' => 'post',
+  'posts_per_page' => $context['posts_per_page'],
+  'paged' => $context['paged']
+);
+
 if ( isset( $wp_query->query_vars['author'] ) ) {
-	$author = new TimberUser( $wp_query->query_vars['author'] );
-	$context['author'] = $author;
-	$context['title'] = 'Author Archives: ' . $author->name();
+  $author = new TimberUser( $wp_query->query_vars['author'] );
+
+  $context['author'] = $author;
+  $context['title'] = __('Author', 'blendid') . ': ' . $author->name();
 }
-Timber::render( array( 'author.twig', 'archive.twig' ), $context );
+
+$context['posts'] = Timber::get_posts($args);
+
+if (count($context['posts']) >= $context['posts_per_page']) {
+  $context['have_posts_next'] = true;
+} else {
+  $context['have_posts_next'] = false;
+}
+
+Timber::render( array( 'author.twig', 'archive.twig', 'index.twig' ), $context );

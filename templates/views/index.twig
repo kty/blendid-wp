@@ -1,9 +1,21 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <div class="row">
+  
+  <h1>{{title}}</h1>
+
+  <div class="row load-more-posts">
   	{% for post in posts %}
   		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
   	{% endfor %}
   </div>
+
+  {% if have_posts_next %}
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <a href="#" class="btn load-more-btn" data-module="load-more" data-paged="{{paged}}" {% if posts_per_page %} data-posts-per-page="{{posts_per_page}}" {% endif %} {% if taxonomy %} data-taxonomy="{{taxonomy}}" {% endif %} {% if term_id %} data-term-id="{{term_id}}" {% endif %} {% if author %} data-author="{{author.id}}" {% endif %} {% if search %} data-search="{{search}}" {% endif %} data-nonce="{{ function('wp_create_nonce', 'load_more_posts') }}">{{__('Load more', 'blendid')}} <i class="fa fa-circle-o-notch"></i></a>
+      </div>
+    </div>
+  {% endif %}
+
 {% endblock %}
