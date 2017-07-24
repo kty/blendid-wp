@@ -1,6 +1,6 @@
 class Header {
   constructor(props) {
-
+    this.init()
   }
 
   init() {

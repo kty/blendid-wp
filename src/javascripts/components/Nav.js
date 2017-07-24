@@ -1,6 +1,6 @@
 class Nav {
   constructor(props) {
-    
+    this.init()
   }
 
   init() {

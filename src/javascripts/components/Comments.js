@@ -1,6 +1,6 @@
 class Comments {
   constructor(props) {
-    
+    this.init()
   }
 
   init() {
