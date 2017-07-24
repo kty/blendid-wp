@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Timber;
+
 /**
 * To keep the count accurate, lets get rid of prefetching
 */
@@ -39,7 +41,7 @@ function track_post_views($post_id) {
   set_post_views($post_id);
 }
 
-add_action( 'wp_head', __NAMESPACE__ . '\track_post_views');
+add_action( 'wp_head', __NAMESPACE__ . '\track_post_views' );
 
 // Add row shortcode
 function row_shortcode($atts, $content = null) {
@@ -81,3 +83,17 @@ function button_shortcode($atts, $content = null) {
 }
 
 add_shortcode('button', __NAMESPACE__ . '\button_shortcode');
+
+function youtube_shortcode($atts) {
+  if (isset($atts['id'])) {
+    $id = sanitize_text_field($atts['id']);
+  } else {
+    $id = false;
+  }
+
+  // this time we use Timber::compile since shorttags should return the code
+  return Timber::compile('shortcodes/youtube.twig', array('id' => $id));
+}
+
+// should be called from within an init action hook
+add_shortcode( 'youtube', __NAMESPACE__ . '\youtube_shortcode' );
