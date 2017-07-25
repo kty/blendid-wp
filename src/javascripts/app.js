@@ -13,17 +13,13 @@ import Comments from './components/Comments'
 
 let header = new Header('#header')
 
-let slider = new Slider('.slideshow-block .slider')
-
-slider.args = {
+let slider = new Slider('.slideshow-block .slider', {
   prevArrow: '<button type="button" class="slick-arrow slick-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
   nextArrow: '<button type="button" class="slick-arrow slick-next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
   infinite: true,
   dots: true,
   pauseOnHover: true
-}
-
-slider.init()
+})
 
 let nav = new Nav()
 

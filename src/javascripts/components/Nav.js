@@ -3,6 +3,8 @@ import Blendid from './Blendid'
 class Nav extends Blendid {
   constructor() {
     super()
+
+    this.init()
   }
 
   init() {

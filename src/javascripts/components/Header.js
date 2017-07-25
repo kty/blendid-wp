@@ -7,6 +7,8 @@ class Header extends Blendid {
     this._header = $(element)
     this._headerHeight = 0
     this._lastScroll = 0
+
+    this.init()
   }
 
   init() {

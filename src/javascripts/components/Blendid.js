@@ -28,12 +28,12 @@ class Blendid {
     
   }
 
-  getCurrentScroll() {
-    return this.currentScroll
-  }
-
   scroll() {
     this.currentScroll = $(window).scrollTop()
+  }
+
+  getCurrentScroll() {
+    return this.currentScroll
   }
 
   addClass(element, value) {

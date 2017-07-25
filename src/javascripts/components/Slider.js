@@ -5,7 +5,9 @@ class Slider extends Blendid {
     super(element, args)
 
     this._element = $(element)
-    this._args = args
+    this.args = args
+    
+    this.init()
   }
 
   get args() {
