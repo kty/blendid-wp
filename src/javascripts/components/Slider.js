@@ -1,47 +1,45 @@
 import Blendid from './Blendid'
 
 class Slider extends Blendid {
-  args = {
-    prevArrow: '<button type="button" class="slick-arrow slick-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-    nextArrow: '<button type="button" class="slick-arrow slick-next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
-    infinite: true,
-    dots: true,
-    pauseOnHover: true
+  constructor(element, args) {
+    super(element, args)
+
+    this._element = $(element)
+    this._args = args
   }
 
-  constructor(el, args) {
-    super()
+  get args() {
+    return this._args
+  }
 
-    this.el = $(el)
-    this.args = args == undefined ? this.args : {}
-
-    this.init()
+  set args(value) {
+    this._args = value
   }
 
   init() {
     let self = this
 
-    this.setColor = function(slide) {
-      if (slide.hasClass('white')) {
-        self.slider.addClass('light')
-      } else {
-        self.slider.removeClass('light')
-      }
-    }
-
-    this.el.on('beforeChange', function(event, slick, currentSlide, nextSlide){
-      self.slider = slick.$slider
+    this.element.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+      this.element = slick.$slider
       var slide = $(slick.$slides[nextSlide])
 
       self.setColor(slide)
     }).on('init', function(event, slick) {
-      self.slider = slick.$slider
+      this.element = slick.$slider
       var slide = $(slick.$slides[0])
 
       self.setColor(slide)
     })
 
-    this.el.slick(this.args)
+    this.element.slick(this._args)
+  }
+
+  setColor(slide) {
+    if (slide.hasClass('white')) {
+      this.element.addClass('light')
+    } else {
+      this.element.removeClass('light')
+    }
   }
 }
 

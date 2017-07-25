@@ -4,6 +4,13 @@
   padding: 1em 0;
   @include position(fixed, 0 null null null);
   z-index: 1000;
+  transform: translateY(0);
+  transition: transform 0.3s, opacity 0.6s;
+
+  &.animate-up {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 
   .container {
     @include media-breakpoint-down(md) {

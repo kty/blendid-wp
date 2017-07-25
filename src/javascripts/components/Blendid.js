@@ -2,7 +2,7 @@ class Blendid {
   constructor(element) {
     let self = this
 
-    this._element = element
+    this._element = $(element)
     this._currentScroll = 0
 
     $(window).on('scroll', self.scroll)
@@ -16,24 +16,38 @@ class Blendid {
     this._element = $(element)
   }
 
-  scroll() {
-    this._currentScroll = $(window).scrollTop()
+  set currentScroll(value) {
+    this._currentScroll = value
+  }
 
+  get currentScroll() {
     return this._currentScroll
   }
 
-  hide(element) {
-    this.element = $(element)
-
-    if (this.element.hasClass('hide')) return
-    this.element.addClass('hide')
+  init() {
+    
   }
 
-  show(element) {
+  getCurrentScroll() {
+    return this.currentScroll
+  }
+
+  scroll() {
+    this.currentScroll = $(window).scrollTop()
+  }
+
+  addClass(element, value) {
     this.element = $(element)
 
-    if (!this.element.hasClass('hide')) return
-    this.element.removeClass('hide')
+    if (this.element.hasClass(value)) return
+    this.element.addClass(value)
+  }
+
+  removeClass(element, value) {
+    this.element = $(element)
+
+    if (!this.element.hasClass(value)) return
+    this.element.removeClass(value)
   }
 }
 
