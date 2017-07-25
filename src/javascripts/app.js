@@ -11,8 +11,7 @@ import Slider from './components/Slider'
 import Nav from './components/Nav'
 import Comments from './components/Comments'
 
-new Header()
-new Nav()
-new Comments()
-
-new Slider('.slideshow-block .slider')
+let header = new Header('#header')
+let slider = new Slider('.slideshow-block .slider')
+let nav = new Nav()
+let comments = new Comments()

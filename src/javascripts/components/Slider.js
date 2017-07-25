@@ -1,4 +1,6 @@
-class Slider {
+import Blendid from './Blendid'
+
+class Slider extends Blendid {
   args = {
     prevArrow: '<button type="button" class="slick-arrow slick-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
     nextArrow: '<button type="button" class="slick-arrow slick-next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
@@ -8,6 +10,8 @@ class Slider {
   }
 
   constructor(el, args) {
+    super()
+
     this.el = $(el)
     this.args = args == undefined ? this.args : {}
 

@@ -1,5 +1,9 @@
-class Comments {
-  constructor(props) {
+import Blendid from './Blendid'
+
+class Comments extends Blendid {
+  constructor() {
+    super()
+
     this.init()
   }
 

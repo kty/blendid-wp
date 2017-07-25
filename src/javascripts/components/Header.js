@@ -1,10 +1,28 @@
-class Header {
-  constructor(props) {
-    this.init()
+import Blendid from './Blendid'
+
+class Header extends Blendid {
+  constructor (element) {
+    super()
+
+    this._header = element
   }
 
-  init() {
-    
+  get header() {
+    return this._header
+  }
+
+  set header(header) {
+    this._header = $(header)
+  }
+
+  scroll() {
+    let currentScroll = super.scroll()
+
+    if (currentScroll > 500) {
+      super.hide(this.header)
+    } else {
+      super.show(this.header)
+    }
   }
 }
 
