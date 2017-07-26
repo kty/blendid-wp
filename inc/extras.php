@@ -67,19 +67,30 @@ function product_shortcode($atts) {
   $image = esc_url($atts['image']);
   $text = sanitize_text_field($atts['text']);
 
-  return Timber::compile( 'shortcodes/product.twig', array('url' => $url, 'image' => $image, 'text' => $text) );
+  return Timber::compile( 'shortcodes/product.twig',
+    array(
+      'url' => $url,
+      'image' => $image,
+      'text' => $text
+    )
+  );
 }
 
 add_shortcode( 'product', __NAMESPACE__ . '\product_shortcode' );
 
-function button_shortcode($atts, $text = null) {
+function button_shortcode($atts, $content = null) {
   $url = esc_url($atts['url']);
-  $text = sanitize_text_field($text);
+  $text = sanitize_text_field($content);
 
-  return Timber::compile( 'shortcodes/button.twig', array('url' => $url, 'text' => $text) );
+  return Timber::compile( 'shortcodes/button.twig',
+    array(
+      'url' => $url,
+      'text' => $text
+    )
+  );
 }
 
-add_shortcode('button', __NAMESPACE__ . '\button_shortcode');
+add_shortcode( 'button', __NAMESPACE__ . '\button_shortcode' );
 
 function youtube_shortcode($atts) {
   if (isset($atts['id'])) {
@@ -88,9 +99,7 @@ function youtube_shortcode($atts) {
     $id = false;
   }
 
-  // this time we use Timber::compile since shorttags should return the code
   return Timber::compile('shortcodes/youtube.twig', array('id' => $id));
 }
 
-// should be called from within an init action hook
 add_shortcode( 'youtube', __NAMESPACE__ . '\youtube_shortcode' );
