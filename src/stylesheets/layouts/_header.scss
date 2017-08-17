@@ -10,6 +10,11 @@
   &.animate-up {
     opacity: 0;
     transform: translateY(-100%);
+
+    .state--offcanvas & {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .container {
