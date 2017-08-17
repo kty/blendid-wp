@@ -51,6 +51,7 @@ $blendid_includes = [
   'inc/post-types.php',
   'inc/taxonomies.php',
   'inc/extras.php',
+  'inc/lang.php',
   'inc/ajax.php'
 ];
 

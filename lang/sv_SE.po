@@ -1,0 +1,119 @@
+#:
+msgid "Theme settings"
+msgstr "Temainställningar"
+
+#:
+msgid "Generate .mo-file"
+msgstr "Generera .mo-fil"
+
+#:
+msgid "Intro"
+msgstr "Ingress"
+
+#:
+msgid "Read more"
+msgstr "Läs mer"
+
+#:
+msgid "Continued"
+msgstr "Läs mer"
+
+#:
+msgid "Read article"
+msgstr "Läs artikel"
+
+#:
+msgid "404 - Page not found"
+msgstr "404 - Sidan hittades inte"
+
+#:
+msgid "Sorry, we could not find what you are looking for."
+msgstr "Tyvärr, vi kunde inte hitta det du letar efter."
+
+#:
+msgid "Comments"
+msgstr "Kommentarer"
+
+#:
+msgid "Comment"
+msgstr "Kommentera"
+
+#:
+msgid "Reply to"
+msgstr "Svara till"
+
+#:
+msgid "Name"
+msgstr "Namn"
+
+#:
+msgid "Firstname"
+msgstr "Förnamn"
+
+#:
+msgid "Lastname"
+msgstr "Efternamn"
+
+#:
+msgid "Email"
+msgstr "E-post"
+
+#:
+msgid "Phone"
+msgstr "Telefon"
+
+#:
+msgid "Website"
+msgstr "Hemsida"
+
+#:
+msgid "Message"
+msgstr "Meddelande"
+
+#:
+msgid "Reply"
+msgstr "Svara"
+
+#:
+msgid "Loading"
+msgstr "Laddar"
+
+#:
+msgid "Others have also read"
+msgstr "Andra har också läst"
+
+#:
+msgid "Subscribe to our newsletter"
+msgstr "Prenumerera på nyhetsbrev"
+
+#:
+msgid "Send"
+msgstr "Skicka"
+
+#:
+msgid "Contact form"
+msgstr "Kontaktformulär"
+
+#:
+msgid "Newsletter form"
+msgstr "Nyhetsbrevsformulär"
+
+#:
+msgid "Your message has been sent"
+msgstr "Ditt meddelande har skickats"
+
+#:
+msgid "Something went wrong. Please try again"
+msgstr "Något gick fel. Var god försök igen"
+
+#:
+msgid "Yes"
+msgstr "Ja"
+
+#:
+msgid "No"
+msgstr "Nej"
+
+#:
+msgid "Now you subscribe to our newsletter"
+msgstr "Nu prenumererar du på vårt nyhetsbrev"

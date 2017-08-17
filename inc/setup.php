@@ -49,7 +49,7 @@ add_action('admin_enqueue_scripts', function() {
  * Theme setup
  */
 add_action('after_setup_theme', function () {
-  load_theme_textdomain('blendid', get_template_directory() . '/public/lang');
+  load_theme_textdomain('blendid', get_template_directory() . '/lang');
 
   add_theme_support('title-tag');
 
