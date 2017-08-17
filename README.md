@@ -29,7 +29,7 @@ cd blendid-wp
 
 Activate the theme in Appearance > Themes.
 
-Change BrowserSync proxy to corresponding domain name, for example blendid-wp.dev. Also change publicPath to correct theme path. You find these settings in `config/task-config.js`.
+Change BrowserSync proxy to corresponding domain name, for example `blendid-wp.dev`. Also change publicPath to correct theme path. You find these settings in `config/task-config.js`.
 
 Install required node and composer dependencies.
 
@@ -64,4 +64,5 @@ yarn run build
 ## Other Resources
 
 [Timber Docs](https://timber.github.io/docs/)
+
 [Twig for Timber Cheatsheet](http://notlaura.com/the-twig-for-timber-cheatsheet/)
