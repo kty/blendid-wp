@@ -16,34 +16,34 @@ A WordPress starter theme based on [Blendid](https://github.com/vigetlabs/blendi
 
 ## Get started
 
-Install [Valet](https://laravel.com/docs/5.4/valet) and follow the instructions. Create a new site for example blendid-wp.dev. Download and install WordPress there.
+1. Install [Valet](https://laravel.com/docs/5.4/valet) and follow the instructions. Create a new site for example blendid-wp.dev. Download and install WordPress there.
 
-Install [ACF Pro](https://www.advancedcustomfields.com/pro/) to `wp-content/plugins` and activate it.
+2. Install [ACF Pro](https://www.advancedcustomfields.com/pro/) to `wp-content/plugins` and activate it.
 
-Clone this repository to `wp-content/themes`.
+3. Clone this repository to `wp-content/themes`.
 
 ```bash
 git clone https://github.com/alexanderalmstrom/blendid-wp.git blendid-wp
 cd blendid-wp
 ```
 
-Activate the theme in Appearance > Themes.
+4. Activate the theme in Appearance > Themes.
 
-Change BrowserSync proxy to corresponding domain name, for example `blendid-wp.dev`. Also change publicPath to correct theme path. You find these settings in `config/task-config.js`.
+5. Change BrowserSync proxy to corresponding domain name, for example `blendid-wp.dev`. Also change publicPath to correct theme path. You find these settings in `config/task-config.js`.
 
-Install required node and composer dependencies.
+6. Install required node and composer dependencies.
 
 ```bash
 yarn install && composer install
 ```
 
-Start watching, compiling and live updating our files. We use BrowserSync for this.
+7. Start watching, compiling and live updating our files. We use BrowserSync for this.
 
 ```bash
 yarn run start
 ```
 
-That's it!
+8. That's it!
 
 ### Build for production
 
