@@ -92,3 +92,59 @@ function load_posts() {
 
 add_action( 'wp_ajax_load_posts', 'load_posts' );
 add_action( 'wp_ajax_nopriv_load_posts', 'load_posts' );
+
+function submit_contact_form() {
+  check_ajax_referer('submit_contact_form', '_wpnonce');
+
+  $data = array();
+
+  foreach ($_POST as $key => $value) {
+    $data[$key] = $value;
+  }
+
+  $data['newsletter'] = isset($data['newsletter']) ? true : false;
+
+  $newsletter = $data['newsletter'] ? __('Yes', 'blendid') : __('No', 'blendid');
+
+  $data['message'] = nl2br($data['message']);
+
+  $to = get_field('email', 'option') ? get_field('email', 'option') : get_bloginfo('admin_email');
+
+  $message = "
+    <html>
+      <head>
+        <title>{$data['subject']}</title>
+      </head>
+      <body>
+        <p>Förnamn: {$data['firstname']}</p>
+        <p>Efternamn: {$data['lastname']}</p>
+        <p>E-post: {$data['email']}</p>
+        <p>Telefon: {$data['phone']}</p>
+        <p>Nyhetsbrev: {$newsletter}</p>
+        <p>Meddelande: <br /><br /> {$data['message']}</p>
+        <p>Url: {$data['url']}</p>
+      </body>
+    </html>
+  ";
+
+  // To send HTML mail, the Content-type header must be set
+  $headers[] = "MIME-Version: 1.0";
+  $headers[] = "Content-type: text/html; charset=UTF-8";
+  $headers[] = "X-Mailer: PHP/" . phpversion();
+
+  // Additional headers
+  $headers[] = "From: {$data['name']} <{$data['email']}>";
+
+  $mail = mail($to, $data['subject'], $message, implode("\r\n", $headers));
+
+  if ($mail) {
+    echo json_encode( array( 'status' => true, 'message' => __('Your message has been sent', 'blendid'), 'data' => $data ) );
+  } else {
+    echo json_encode( array( 'status' => false, 'message' => __('Something went wrong. Please try again', 'blendid'), 'data' => $data ) );
+  }
+
+  die();
+}
+
+add_action( 'wp_ajax_submit_contact_form', 'submit_contact_form' );
+add_action( 'wp_ajax_nopriv_submit_contact_form', 'submit_contact_form' );

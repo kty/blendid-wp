@@ -628,6 +628,148 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "5995a9ed0f48e": {
+                    "key": "5995a9ed0f48e",
+                    "name": "form_block",
+                    "label": "Formulärblock",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5995aa220f48f",
+                            "label": "Fält",
+                            "name": "fields",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "row",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5995aa2f0f490",
+                                    "label": "Namn",
+                                    "name": "name",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "firstname": "Firstname",
+                                        "lastname": "Lastname",
+                                        "email": "Email",
+                                        "phone": "Phone",
+                                        "message": "Message",
+                                        "newsletter": "Subscribe to our newsletter"
+                                    },
+                                    "default_value": [],
+                                    "allow_null": 1,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "return_format": "array",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5995aa4b0f491",
+                                    "label": "Typ",
+                                    "name": "type",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "text": "Text",
+                                        "email": "Email",
+                                        "tel": "Tel",
+                                        "url": "Url",
+                                        "number": "Number",
+                                        "date": "Date",
+                                        "time": "Time",
+                                        "select": "Select",
+                                        "checkbox": "Checkbox",
+                                        "radio": "Radio",
+                                        "textarea": "Textarea"
+                                    },
+                                    "default_value": [],
+                                    "allow_null": 1,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "return_format": "value",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5995aa6a0f492",
+                                    "label": "Val",
+                                    "name": "options",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5995aa4b0f491",
+                                                "operator": "==",
+                                                "value": "select"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "row",
+                                    "button_label": "",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5995aa750f493",
+                                            "label": "Värde",
+                                            "name": "value",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Lägg till block",
@@ -652,5 +794,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1500624419
+    "modified": 1502980931
 }

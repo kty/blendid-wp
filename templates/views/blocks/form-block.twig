@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <form action="{{site.url}}" method="post" class="row" data-module="form">
+        {% for field in layout.fields %}
+          {% if field.type == "textarea" %}
+            <div class="form-group col-sm-12">
+              <textarea class="form-control" name="{{field.name.value}}" placeholder="{{__(field.name.label, 'blendid') }}"></textarea>
+            </div>
+          {% elseif field.type == "checkbox" or field.type == "radio" %}
+            <div class="col-sm-6">
+              <label class="custom-control custom-{{field.type}}">
+                <input type="{{field.type}}" name="{{field.name.value}}" value="" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">{{__(field.name.label, 'blendid') }}</span>
+              </label>
+            </div>
+          {% else %}
+            <div class="form-group col-sm-6">
+              <input class="form-control" type="{{field.type}}" name="{{field.name.value}}" placeholder="{{__(field.name.label, 'blendid')}}">
+            </div>
+          {% endif %}
+        {% endfor %}
+        <div class="col align-bottom">
+          <button class="btn btn-primary btn-lg float-sm-right" type="submit" name="submit">{{__('Send', 'blendid')}}</button>
+        </div>
+        <input type="hidden" name="subject" value="{{__('Contact form', 'blendid')}}">
+        <input type="hidden" name="url" value="{{post.link}}">
+        <input type="hidden" name="action" value="submit_contact_form">
+        {{ fn('wp_nonce_field', 'submit_contact_form', '_wpnonce', false, false) }}
+      </form>
+      <div class="alert" role="alert"></div>
+    </div>
+  </div>
+</div>

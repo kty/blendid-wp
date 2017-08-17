@@ -43,6 +43,12 @@
           {% include "blocks/post-block.twig" with {'layout': layout} %}
         </section>
 
+      {% elseif layout.acf_fc_layout == "form_block" %}
+
+        <section id="form-block-{{counters[row_layout]}}" class="block form-block">
+          {% include "blocks/form-block.twig" with {'layout': layout} %}
+        </section>
+
       {% endif %}
     {% endfor %}
 

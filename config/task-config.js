@@ -21,7 +21,8 @@ module.exports = {
       jQuery: "jquery",
       "window.jQuery": "jquery",
       Tether: "tether",
-      "window.Tether": "tether"
+      "window.Tether": "tether",
+      i18next: "i18next"
     }
   },
 
@@ -31,7 +32,9 @@ module.exports = {
         "./node_modules/bourbon/app/assets/stylesheets",
         "./node_modules/bootstrap/scss",
         "./node_modules/slick-carousel/slick",
-        "./node_modules/font-awesome/scss"
+        "./node_modules/font-awesome/scss",
+        "./node_modules/tooltipster/src/css",
+        "./node_modules/tooltipster/src/css/plugins/tooltipster/sideTip"
       ]
     }
   },

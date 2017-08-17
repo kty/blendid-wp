@@ -12,7 +12,10 @@
     "bootstrap": "4.0.0-alpha.6",
     "bourbon": "^4.3.4",
     "font-awesome": "^4.7.0",
+    "i18next": "^8.4.3",
+    "jquery-validation": "^1.17.0",
     "jquery.scrollto": "^2.1.2",
-    "slick-carousel": "^1.6.0"
+    "slick-carousel": "^1.6.0",
+    "tooltipster": "^4.2.5"
   }
 }
