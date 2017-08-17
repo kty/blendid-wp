@@ -1,8 +1,8 @@
 <form method="post" class="comment-form" action="{{ site.url~'/wp-comments-post.php' }}">
   {% if comment %}
-    <h2>Reply to {{comment.comment_author}}</h2>
+    <h3 class="h4">{{ __('Reply to', 'blendid') }} {{comment.comment_author}}</h3>
   {% else %}
-    <h2>Comment {{post.name}}</h2>
+    <h3 class="h4">{{ __('Comment', 'blendid') }} "{{post.name}}"</h3>
   {% endif %}
 
   {% if user %}
@@ -12,31 +12,31 @@
   {% else %}
     <div>
       <div class="form-group">
-        <label for="author">Name</label>
-        <input class="form-control" placeholder="Name" required name="author" type="text" id="author">
+        <label for="author">{{ __('Name', 'blendid') }}</label>
+        <input class="form-control" placeholder="{{ __('Name', 'blendid') }}" required name="author" type="text" id="author">
       </div>
 
       <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" placeholder="Email" required name="email" type="text" id="email">
+        <label for="email">{{ __('Email', 'blendid') }}</label>
+        <input class="form-control" placeholder="{{ __('Email', 'blendid') }}" required name="email" type="text" id="email">
       </div>
 
       <div class="form-group">
-        <label for="url">Website</label>
-        <input class="form-control" placeholder="Website" name="url" id="url" type="text">
+        <label for="url">{{ __('Website', 'blendid') }}</label>
+        <input class="form-control" placeholder="{{ __('Website', 'blendid') }}" name="url" id="url" type="text">
       </div>
     </div>
   {% endif %}
 
   <div class="form-group">
-    <label for="comment">Comment</label>
-    <textarea class="form-control" placeholder="Message..." name="comment" cols="60" rows="3" id="comment"></textarea>
+    <label for="comment">{{ __('Message', 'blendid') }}</label>
+    <textarea class="form-control" placeholder="{{ __('Message', 'blendid') }}..." name="comment" cols="60" rows="3" id="comment"></textarea>
   </div>
 
   <input name="comment_post_ID" value="{{ post.id }}" id="comment_post_ID" type="hidden">
   <input name="comment_parent" id="comment_parent" value="{{ comment.ID|default('0') }}" type="hidden">
 
   <div>
-    <button type="submit" name="submit" class="btn btn-primary">Comment</button>
+    <button type="submit" name="submit" class="btn btn-primary">{{ __('Send', 'blendid') }}</button>
   </div>
 </form>

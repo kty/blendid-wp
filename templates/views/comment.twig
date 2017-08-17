@@ -3,19 +3,17 @@
 	<div class="comment-content">{{comment.comment_content|wpautop}}</div>
 
 	{% if comment.comment_parent == false %}
-		<a href="#comment-{{comment.ID}}" class="btn btn-secondary comment-reply">Reply</a>
+		<a href="#comment-{{comment.ID}}" class="btn btn-secondary comment-reply">{{ __('Reply', 'blendid') }}</a>
 		{% include "comment-form.twig" with {'comment' : comment} %}
 	{% endif %}
 
-	<section class="comment-box">
-		<!-- child comments -->
-		{% if comment.children %}
-			<div class="comments">
-				{% for cmt in comment.children %}
-					{% include "comment.twig" with {comment:cmt} %}
-				{% endfor %}
-			</div>
-		{% endif %}
+	<!-- child comments -->
+	{% if comment.children %}
+		<div class="comments">
+			{% for cmt in comment.children %}
+				{% include "comment.twig" with {comment:cmt} %}
+			{% endfor %}
+		</div>
+	{% endif %}
 
-	</section>
 </div>
