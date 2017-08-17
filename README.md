@@ -29,7 +29,7 @@ cd blendid-wp
 
 4. Activate the theme in Appearance > Themes.
 
-5. Change BrowserSync proxy to corresponding domain name, for example `blendid-wp.dev`. Also change publicPath to correct theme path. You find these settings in `config/task-config.js`.
+5. Change `BrowserSync proxy` to corresponding domain name, for example `blendid-wp.dev`. Also change `publicPath` to correct theme path. You find these settings in `config/task-config.js`.
 
 6. Install required node and composer dependencies.
 
