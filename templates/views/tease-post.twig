@@ -3,23 +3,23 @@
 {% block content %}
   {% if post.get_thumbnail %}
     <figure class="tease-image">
-      <a href="{{post.link}}">
-        <img src="{{post.get_thumbnail.src|resize(1280, 1280)}}" alt="{{post.get_thumbnail.title}}">
+      <a href="{{ post.link }}">
+        <img src="{{ post.get_thumbnail.src|resize(1280, 1280) }}" alt="{{ post.get_thumbnail.title }}">
       </a>
     </figure>
   {% endif %}
 
   <header>
-    <time class="tease-date" datetime="{{post.post_date|date('Y-m-d')}}" pubdate>{{post.post_date|date}}</time>
-    <h2><a href="{{post.link}}">{{post.title}}</a></h2>
+    <time class="tease-date" datetime="{{post.post_date|date('Y-m-d')}}" pubdate>{{ post.post_date|date }}</time>
+    <h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
   </header>
 
   <section class="tease-content">
     {% if post.get_preview %}
-      <p class="lead">{{post.get_preview(22, false, "")}}</p>
+      <p class="lead">{{ post.get_preview(22, false, "") }}</p>
     {% endif %}
 
-    <a class="btn btn-primary" href="{{post.link}}">{{__('Read article', 'blendid')}}</a>
+    <a class="btn btn-primary" href="{{ post.link }}">{{ __('Read article', 'blendid') }}</a>
   </section>
 
   <footer>

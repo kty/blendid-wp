@@ -1,23 +1,23 @@
-<article class="tease tease-{{post.post_type}} col-md-6 col-xl-4 {{post.class}}" id="tease-{{post.ID}}">
+<article class="tease tease-{{post.post_type}} col-md-6 col-xl-4 {{ post.class }}" id="tease-{{ post.ID }}">
   {% block content %}
     {% if post.get_thumbnail %}
       <figure class="tease-image">
-        <a href="{{post.link}}">
-          <img src="{{post.get_thumbnail.src|resize(1280, 720)}}" alt="{{post.get_thumbnail.title}}">
+        <a href="{{ post.link }}">
+          <img src="{{ post.get_thumbnail.src|resize(1280, 720) }}" alt="{{ post.get_thumbnail.title }}">
         </a>
       </figure>
     {% endif %}
 
     <header>
-      <h2><a href="{{post.link}}">{{post.title}}</a></h2>
+      <h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
     </header>
 
     <section class="tease-content">
       {% if post.get_preview %}
-        <p class="lead">{{post.get_preview(22, false, "")}}</p>
+        <p class="lead">{{ post.get_preview(22, false, "") }}</p>
       {% endif %}
 
-      <a class="btn btn-primary" href="{{post.link}}">{{__('Read more', 'blendid')}}</a>
+      <a class="btn btn-primary" href="{{ post.link }}">{{ __('Read more', 'blendid') }}</a>
     </section>
 
     <footer>
