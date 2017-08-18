@@ -14,7 +14,7 @@ if ( ! class_exists( 'Timber' ) ) {
   return;
 }
 
-Timber::$dirname = array('inc', 'templates', 'templates/views');
+Timber::$dirname = array( 'inc', 'templates', 'templates/views' );
 
 class BlendidStarter extends TimberSite {
 
@@ -41,6 +41,8 @@ class BlendidStarter extends TimberSite {
   function add_to_context( $context ) {
     $context['menu'] = new TimberMenu();
     $context['site'] = $this;
+    $context['icons_path'] = \App\asset_path( 'images/icons.svg' );
+
     return $context;
   }
 
@@ -52,7 +54,8 @@ class BlendidStarter extends TimberSite {
   function add_to_twig( $twig ) {
     /* this is where you can add your own functions to twig */
     $twig->addExtension( new Twig_Extension_StringLoader() );
-    $twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
+    $twig->addFilter( 'myfoo', new Twig_SimpleFilter( 'myfoo', array($this, 'myfoo') ) );
+
     return $twig;
   }
 
