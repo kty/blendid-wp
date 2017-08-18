@@ -29,7 +29,7 @@ cd blendid-wp
 
 4. Activate the theme in Appearance > Themes.
 
-5. We use "name" in `package.json` to fix corrent paths and proxy. Change "name" in `package.json` to your corresponding domain name. For example domain name `blendid-wp.app` and theme name `blendid-wp`. (I use .app instead of .dev with Valet. It´s up to you what you prefer.)
+5. We use "name" in `package.json` to fix corrent paths and proxy. Change this to your corresponding domain name. For example domain name `blendid-wp.app` and theme name `blendid-wp`. (I use .app instead of .dev with Valet. It´s up to you what you prefer.)
 
 Note: Domain name and theme folder need to have the same name. Otherwise you need to change browserSync proxy and publicPath in `config/task-config.js`
 
