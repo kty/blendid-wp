@@ -5,7 +5,8 @@ A WordPress starter theme based on [Blendid](https://github.com/vigetlabs/blendi
 ## Features
 
 - Blendid's awesome asset pipeline setup with Gulp and Webpack.
-- Twig template languange with [Timber](https://github.com/timber/timber)
+- Twig template languange with [Timber](https://github.com/timber/timber).
+- Dependency management with [Composer](https://getcomposer.org/) and [Yarn](https://yarnpkg.com/).
 
 ## Recommended setup
 
