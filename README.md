@@ -69,7 +69,7 @@ Generate SVG Sprites from svg files in `src/icons`. Blendid includes a helper wh
 {{ sprite(icons_path, 'my-icon') }}
 ```
 
-`icons_path` is a variable defined in `inc/timber.php` and added to Timber context.
+`icons_path` is a variable defined in `inc/timber.php` and added to Timber context. This generates the icons path.
 
 ## Other Resources
 
