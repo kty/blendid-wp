@@ -11,8 +11,9 @@ A WordPress starter theme based on [Blendid](https://github.com/vigetlabs/blendi
 
 - [WP-CLI](https://github.com/wp-cli/wp-cli) Command-line interface for WordPress.
 - [Valet](https://laravel.com/docs/5.4/valet) Laravel development environment perfect for WordPress sites.
+- [Composer](https://getcomposer.org/download/) PHP dependency management with Composer.
 - [Node Version Manager](https://github.com/creationix/nvm). At least Node version 6.
-- [Yarn](https://yarnpkg.com) Fast and secure dependency manegement. We use Yarn instead of npm.
+- [Yarn](https://yarnpkg.com) Fast and secure dependency manegement for node modules. We use Yarn instead of npm.
 
 ## Get started
 
