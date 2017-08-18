@@ -4,6 +4,7 @@
 
   #main {
     transition: all 0.3s;
+    backface-visibility: hidden;
   }
 
   .nav-offcanvas {
