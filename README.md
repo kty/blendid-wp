@@ -61,6 +61,16 @@ yarn run build
 
 `inc/` contains all needed theme files included by functions.php
 
+## SVG Sprites
+
+Generate SVG Sprites from svg files in `src/icons`. Blendid includes a helper whiches generates the required svg markup in `templates/macros/helpers.twig`, so you can just do:
+
+```twig
+{{ sprite(icons_path, 'my-icon') }}
+```
+
+`icons_path` is a variable defined in `inc/timber.php` and added to Timber context.
+
 ## Other Resources
 
 [Timber Docs](https://timber.github.io/docs/)
