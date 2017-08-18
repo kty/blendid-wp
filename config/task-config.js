@@ -1,3 +1,6 @@
+var path = require('path')
+var packageJSON = require('../package.json')
+
 module.exports = {
   html        : false,
   images      : true,
@@ -14,7 +17,7 @@ module.exports = {
       app: ["./app.js"]
     },
 
-    publicPath: "/wp-content/themes/blendid-starter/public/javascripts",
+    publicPath: path.join('/wp-content/themes', packageJSON.name, 'public/javascripts'),
 
     provide: {
       $: "jquery",
@@ -40,7 +43,7 @@ module.exports = {
   },
 
   browserSync: {
-    proxy: "blendid-starter.app",
+    proxy: packageJSON.name + ".app",
     files: ["templates", "inc"]
   },
 
