@@ -44,8 +44,6 @@ class Header extends Blendid {
 
     this.headerHeight = this.header.offsetHeight
 
-    console.log(this.headerHeight)
-
     if (currentScroll < this.headerHeight) {
       super.removeClass(this.header, 'animate-up')
       return
