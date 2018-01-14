@@ -1,18 +1,18 @@
 {
   "name": "blendid-wp",
   "version": "1.0.0",
-  "author": "alexanderalmstrom <alexander.almstrom@bizkithavas.se>",
+  "author": "alexanderalmstrom <info@alexanderalmstrom.com>",
   "license": "MIT",
   "scripts": {
     "start": "yarn run blendid",
     "build": "yarn run blendid -- build"
   },
   "dependencies": {
-    "blendid": "^4.1.1",
+    "blendid": "^4.3.1",
     "bootstrap": "4.0.0-alpha.6",
-    "bourbon": "^4.3.4",
+    "bourbon": "^5.0.0",
     "font-awesome": "^4.7.0",
-    "i18next": "^8.4.3",
+    "i18next": "^10.2.2",
     "jquery-validation": "^1.17.0",
     "jquery.scrollto": "^2.1.2",
     "slick-carousel": "^1.6.0",

@@ -1,5 +1,4 @@
 var path = require('path')
-var packageJSON = require('../package.json')
 
 module.exports = {
   html        : false,
@@ -17,7 +16,7 @@ module.exports = {
       app: ["./app.js"]
     },
 
-    publicPath: path.join('/wp-content/themes', packageJSON.name, 'public/javascripts'),
+    publicPath: '/wp-content/themes/blendid-wp/public/javascripts',
 
     provide: {
       $: "jquery",
@@ -32,7 +31,7 @@ module.exports = {
   stylesheets: {
     sass: {
       "includePaths": [
-        "./node_modules/bourbon/app/assets/stylesheets",
+        "./node_modules/bourbon/core",
         "./node_modules/bootstrap/scss",
         "./node_modules/slick-carousel/slick",
         "./node_modules/font-awesome/scss",
@@ -43,7 +42,7 @@ module.exports = {
   },
 
   browserSync: {
-    proxy: packageJSON.name + ".app",
+    proxy: "blendid-wp.test",
     files: ["templates", "inc"]
   },
 
