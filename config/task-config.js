@@ -18,6 +18,11 @@ module.exports = {
 
     publicPath: '/wp-content/themes/blendid-wp/public/js',
 
+    babelLoader: {
+      loader: 'babel-loader',
+      exclude: /node_modules\/(?!(foundation-sites)\/).*/
+    },
+
     provide: {
       $: "jquery",
       jQuery: "jquery",

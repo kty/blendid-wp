@@ -46,15 +46,36 @@ class BlendidStarter extends TimberSite {
     return $context;
   }
 
-  function myfoo( $text ) {
-    $text .= ' bar!';
-    return $text;
+  function orphans( $s ) {
+    if (class_exists('\iworks_orphan')) {
+      $orphan = new \iworks_orphan();
+      return $orphan->replace( $s );
+    } else {
+      return $s;
+    }
+  }
+
+  function the_content( $s ) {
+    return apply_filters('the_content', $s);
+  }
+
+  function the_title( $s ) {
+    return apply_filters('the_title', $s);
+  }
+
+  function remove_nbsp( $s ) {
+    return str_replace('&nbsp;', ' ', $s);
   }
 
   function add_to_twig( $twig ) {
     /* this is where you can add your own functions to twig */
     $twig->addExtension( new Twig_Extension_StringLoader() );
-    $twig->addFilter( 'myfoo', new Twig_SimpleFilter( 'myfoo', array($this, 'myfoo') ) );
+    $twig->addFilter( new Twig_SimpleFilter( 'asset_path', '\App\asset_path' ) );
+    $twig->addFilter( new Twig_SimpleFilter( 'asset_name', '\App\asset_name' ) );
+    $twig->addFilter( new Twig_SimpleFilter( 'orphans', array($this, 'orphans') ) );
+    $twig->addFilter( new Twig_SimpleFilter( 'the_content', array($this, 'the_content') ) );
+    $twig->addFilter( new Twig_SimpleFilter( 'the_title', array($this, 'the_title') ) );
+    $twig->addFilter( new Twig_SimpleFilter( 'remove_nbsp', array($this, 'remove_nbsp') ) );
 
     return $twig;
   }

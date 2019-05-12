@@ -36,4 +36,11 @@ class Asset
         $file = ($this->manifest ? $this->manifest->get($this->asset) : $this->asset);
         return get_template_directory_uri() . self::$dist . "/$file";
     }
+
+    // Returns the original filename, revisioned through manifest
+    public function getFilename()
+    {
+        $file = ($this->manifest ? $this->manifest->get($this->asset) : $this->asset);
+        return $file;
+    }
 }

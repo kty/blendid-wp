@@ -1,0 +1,21 @@
+<header id="header" class="header" data-toggler=".is-menu-visible">
+	<div class="grid-container w-100">
+		<div class="grid-x grid-padding-x grid-margin-x context">
+			<div class="cell small-6">
+				<h1 class="visuallyhidden">{{ site.name }}</h1>
+				<a class="reset-link" href="{{ site.url }}" rel="home">
+					<div class="header__logo d-ib">
+						{# {% include ("img/logo.svg" | asset_name) %} #}
+					</div>
+				</a>
+			</div>
+			<div class="cell small-6 text-right">
+				<a href="javascript:void(0)" class="header__menu-toggle reset-link hide-for-large" data-toggle="main-menu header">
+					<span class="hamburger">
+						<span></span>
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</header>

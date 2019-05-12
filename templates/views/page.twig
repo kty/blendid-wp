@@ -1,10 +1,16 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-		<h1>{{ post.title }}</h1>
-		<div class="article-content">
-			{{ post.content }}
+<div class="grid-container">
+	<div class="grid-x grid-margin-x grid-padding-x">
+		<div class="cell">
+			<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+				<h1>{{ post.title }}</h1>
+				<div class="article-content">
+					{{ post.content }}
+				</div>
+			</article>
 		</div>
-	</article>
+	</div>
+</div>
 {% endblock %}

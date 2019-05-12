@@ -1,10 +1,30 @@
-{% if menu %}
-	<ul {% if sub %}class="dropdown-menu" aria-labelledby="supportedContentDropdown"{% endif %}>
-	{% for item in menu %}
-		<li class="nav-item {% if item.get_children %}dropdown{% endif %} {{ item.classes | join(' ') }}">
-			<a class="nav-link {% if item.get_children %}dropdown-toggle{% endif %}" {% if item.get_children %} id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" {% endif %} href="{{ item.link }}">{{ item.title }}</a>
-			{% include "menu.twig" with { 'menu': item.get_children, 'sub': true } %}
-		</li>
-	{% endfor %}
-	</ul>
-{% endif %}
+<nav id="main-menu" class="main-menu">
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x grid-margin-x">
+			<div class="cell">
+				<ul class="reset-list menu vertical" data-accordion-menu>
+					{% for item in menu.items %}
+						<li class="main-menu__item fz-3 pt-lv2 pb-lv2">
+							<a class="main-menu__link"
+								{% if item.children %}
+									href="#"
+								{% else %}
+									href="{{ item.link }}"
+								{% endif %}
+							>{{ item.title }}</a>
+							{% if item.children %}
+								<ul class="reset-list menu vertical nested">
+									{% for child in item.children %}
+										<li class="main-menu__item">
+											<a class="main-menu__link" href="{{ child.link }}">{{child.title }}</a>
+										</li>
+									{% endfor %}
+								</ul>
+							{% endif %}							
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
