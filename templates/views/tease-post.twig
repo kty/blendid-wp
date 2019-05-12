@@ -15,8 +15,8 @@
   </header>
 
   <section class="tease-content">
-    {% if post.get_preview %}
-      <p class="lead">{{ post.get_preview(22, false, "") }}</p>
+    {% if post.preview %}
+      <p class="lead">{{ post.preview.length(22).read_more('') }}</p>
     {% endif %}
 
     <a class="btn btn-primary" href="{{ post.link }}">{{ __('Read article', 'blendid') }}</a>

@@ -8,11 +8,11 @@
 
 	<body class="{{ body_class }}" data-template="base.twig">
 		{% include "partials/header.twig" %}
-		{% include "menu.twig" with { 'menu': menu } %}
 		<main id="main" role="main" class="pt-lv12">
 			{% block content %}
 			{% endblock %}
 		</main>
+		{% include "menu.twig" with { 'menu': menu } %}
     	{% include "partials/footer.twig" %}
 			
 		{{ function('wp_footer') }}
