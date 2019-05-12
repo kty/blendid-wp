@@ -1,0 +1,63 @@
+//
+// Shortcut for applying same styles to :hover, :focus and :active states.
+// Scopes hover styles to .no-touch (added by Modernizr) to prevent delay on mobile devices.
+//
+// Optionally you can:
+//
+// - pass additional classes to apply the effect (wrap in parantheses if multiple):
+//
+// @include hover('&.active') { ... }
+// @include hover(('&.active','&.selected')) { ... }
+//
+// - exclude some default classes:
+//
+// @include hover($exclude:'&:focus') { ... }
+// @include hover($exclude:('.no-touch &:hover','&:active')) { ... }
+//
+//
+@mixin hover($classes:null, $exclude:null) {
+
+    // $default-classes: ('[data-whatinput="mouse"] &:hover', '&:focus', '&:active');
+    $default-classes: ('&:hover', '&:focus', '&:active');
+
+    $classes: join($default-classes, $classes, comma);
+
+    $selector: ();
+
+    @each $class in $classes {
+
+        @if $class != $exclude and not index($exclude, $class) {
+            $selector: append($selector, #{$class} , comma);
+        }
+
+    }
+
+    #{$selector} {
+        @content;
+    }
+
+}
+
+//
+// Shortcut for applying a color and/or background color, and applying their lighter/darker variants on hover/focus/active.
+//
+//
+@mixin hover-colors($color:null, $bg:null, $darker:false, $amount:30, $classes:null) {
+
+    @if $color {
+        color: $color;
+    }
+    @if $bg {
+        background-color: $bg;
+    }
+
+    @include hover($classes) {
+        @if $color {
+            color: if($darker, darker($color, $amount), lighter($color, $amount));
+        }
+        @if $bg {
+            background-color: if($darker, darker($bg, $amount), lighter($bg, $amount));
+        }
+    }
+
+}

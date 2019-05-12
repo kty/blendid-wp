@@ -1,0 +1,95 @@
+$container-max-width: 1200px !default;
+$container-padding:  rem-calc(10) !default;
+
+//
+// Generate helper classes: {medium|large}-float-{left|right}.
+// .float-left and .float-right are omitted, since these are
+// already in Foundation.
+//
+@mixin responsive-float-helpers {
+    @each $size in $breakpoint-classes {
+        @include breakpoint($size) {
+            @each $direction in (left, right) {
+                @if $size != 'small' {
+                    .#{$size}-float-#{$direction} {
+                        float: #{$direction} !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+$absolute-positions: (
+    t: top,
+    l: left,
+    r: right,
+    b: bottom,
+    tl: (top, left),
+    tr: (top, right),
+    bl: (bottom, left),
+    br: (bottom, right)
+);
+
+@mixin responsive-absolute-position-helpers {
+    @each $size in $breakpoint-classes {
+        @include breakpoint($size) {
+            @each $class, $sides in $absolute-positions {
+
+                $selector: abs-#{$class}0;
+
+                @if $size != 'small' {
+                    $selector: #{$size}-#{$selector};
+                }
+
+                .#{$selector} {
+                    position: absolute;
+                    @each $side in $sides {
+                        #{$side}: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container {
+    position: relative;
+    max-width: $container-max-width;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $container-padding;
+    padding-left: $container-padding;
+}
+
+// For creating positioning context, e.g. for absolutely positioned elements
+.context {
+    position: relative;
+}
+
+// @include responsive-float-helpers;
+
+// Limit width to something sensible, e.g. for single-column layouts
+.limit-width {
+    max-width: 34em;
+}
+
+// @include responsive-absolute-position-helpers;
+
+.w-auto {
+    width: auto;
+}
+
+.mw-100 {
+    max-width: 100%;
+}
+
+.w-small-100 {
+    @include breakpoint(small only) {
+        width: 100%;
+    }
+}
+
+.h-100 {
+    height: 100%;
+}

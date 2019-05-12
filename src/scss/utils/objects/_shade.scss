@@ -1,0 +1,26 @@
+//
+// Shade the element. Useful e.g. for darkening background images
+// that make content illegible without changing the image.
+//
+// Remember to set position: relative on the element the shade
+// should extend to.
+//
+
+.shade {
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		background: rgba(0,0,0,0.4);
+
+		z-index: 0;
+	}
+
+	> * {
+		position: relative;
+	}
+}

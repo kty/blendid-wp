@@ -1,0 +1,91 @@
+//
+// Hamburger icon.
+// Markup:
+// <a class="hamburger" href="#"><span></span></a>
+//
+
+$hamburger-width       : 20px !default;
+$hamburger-height      : 14px !default;
+$hamburger-line-size   : 2px !default;
+
+$hamburger-color       : currentColor !default;
+$hamburger-color-hover : smart-scale($hamburger-color) !default;
+
+$hamburger-transition:   linear !default;
+
+@mixin hamburger(
+	$color       : $hamburger-color,
+	$hover-color : $hamburger-color-hover,
+	$width       : $hamburger-width,
+	$height      : $hamburger-height,
+	$line-size   : $hamburger-line-size
+) {
+
+	position: relative;
+
+	display: inline-block;
+
+	width: $width;
+	height: $height;
+
+	vertical-align: middle;
+	line-height: 1;
+
+	&:before,
+	&:after {
+		content: '';
+	}
+
+	&:before,
+	&:after,
+	span {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: $line-size;
+
+		background-color: $color;
+
+		transition: $hamburger-transition;
+	}
+
+	&:before {
+		// top: 0%;
+	}
+
+	span {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&:after {
+		// top: 100%;
+		transform: translateY( $hamburger-height - $hamburger-line-size );
+	}
+
+	@include hover {
+		&:before,
+		&:after,
+		span {
+			background-color: $hover-color;
+		}
+	}
+}
+
+@mixin hamburger-make-x {
+	span {
+		opacity: 0;
+	}
+
+	&:before {
+		transform: translateY( ($hamburger-height - $hamburger-line-size) / 2 ) rotate(-45deg);
+	}
+
+	&:after {
+		transform: translateY( ($hamburger-height - $hamburger-line-size) / 2 ) rotate(45deg);
+	}
+}
+
+.hamburger {
+	@include hamburger;
+}

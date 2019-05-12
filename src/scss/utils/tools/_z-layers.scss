@@ -1,0 +1,48 @@
+// A clean way to deal with z-index layers in Sass
+// Based on http://www.sitepoint.com/better-solution-managing-z-index-sass/ and http://css-tricks.com/handling-z-index/
+// ---
+//
+// Examples & demo
+// ---
+// .modal {
+//   z-index: z("modal");
+// }
+// .modal-backdrop {
+//   z-index: z("modal") + 1;
+// }
+//
+// .dropdown {
+//   z-index: z("dropdown");
+// }
+//
+// // A pseudo-element that has to be on top
+// // Computed z-index based on the default one
+// .element:after {
+//   z-index: z("default") - 2;
+// }
+// // Calling an unknown layer
+// // will omit the z-index property
+// .error {
+//   z-index: z("unknown-z-index");
+// }
+
+// A map of z layers
+// All z-index values should be set there
+$z-layers: (
+    'modal':    5000,
+    'dropdown': 4000,
+    'default':     1
+) !default;
+
+// A function helper to avoid having to type `map-get($z-layers, ...)`
+// ---
+// @param [string] $component: the layer to use
+// ---
+// @return [number] | [null]
+@function z($layer) {
+    @if not map-has-key($z-layers, $layer) {
+        @warn "No z-index found in $z-layers map for `#{$layer}`. Property omitted.";
+    }
+
+    @return map-get($z-layers, $layer);
+}

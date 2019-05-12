@@ -1,0 +1,26 @@
+// Rotates text and adjusts flow accordingly
+// (Unlike transform: rotate(), which only rotates visually
+// but doesn't modify the flow)
+// 
+// via http://kizu.ru/en/fun/rotated-text/
+///////////////////////////////////////////////////////////
+
+@mixin rotated($width) {
+	overflow: hidden;
+	width: $width;
+	line-height: $width;
+}
+
+@mixin rotated-inner {
+	display: inline-block;
+	white-space: nowrap;
+	transform: translate(0, 100%) rotate(-90deg);
+	transform-origin: 0 0;
+	
+	// Make element square
+	&:after {
+		content: '';
+		float: left;
+		margin-top: 100%;
+	}
+}

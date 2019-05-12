@@ -1,0 +1,18 @@
+@function space($breakpoint, $lvl) {
+	@return $lvl * map-get($spacing, $breakpoint);
+}
+
+@mixin space($property, $lvl: 1, $important: false, $breakpoints: (small, medium)) {
+	@each $breakpoint, $value in $spacing {
+		@include breakpoint($breakpoint) {
+			$val: ();
+		  	
+		  	// if $lvl consists of subvalues, e.g. 1 2 2 1, go through each of them and combine into single declaration
+		    @each $subval in $lvl {
+		      $val: append($val, $value * $subval);
+		    }
+		    
+		    #{$property}: $val if($important, !important, null);
+		}
+	}
+}

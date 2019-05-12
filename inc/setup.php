@@ -28,8 +28,8 @@ add_action('customize_render_section', function ($section) {
 add_action('wp_enqueue_scripts', function () {
   wp_deregister_script('jquery');
 
-  wp_enqueue_style('stylesheets/app.css', asset_path('stylesheets/app.css'), false, null);
-  wp_enqueue_script('javascripts/app.js', asset_path('javascripts/app.js'), [], null, true);
+  wp_enqueue_style('css/app.css', asset_path('css/app.css'), false, null);
+  wp_enqueue_script('js/app.js', asset_path('js/app.js'), [], null, true);
 
   $app = array(
     'sitename' => get_bloginfo('name'),
@@ -38,11 +38,11 @@ add_action('wp_enqueue_scripts', function () {
     'loadingmessage' => __('Loading', 'blendid'),
   );
 
-  wp_localize_script( 'javascripts/app.js', 'blendid', $app);
+  wp_localize_script( 'js/app.js', 'blendid', $app);
 }, 100);
 
 add_action('admin_enqueue_scripts', function() {
-  wp_enqueue_style('stylesheets/admin.css', asset_path('stylesheets/admin.css'), false, null);
+  wp_enqueue_style('css/admin.css', asset_path('css/admin.css'), false, null);
 });
 
 /**
@@ -65,5 +65,5 @@ add_action('after_setup_theme', function () {
 
   add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
 
-  add_editor_style(asset_path('stylesheets/editor.css'));
+  add_editor_style(asset_path('css/editor.css'));
 });

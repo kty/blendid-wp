@@ -1,0 +1,41 @@
+@charset 'utf-8';
+
+// ITCSS: Tools
+@import 'foundation-sites/scss/foundation';
+@import 'utils/tools/__tools';
+@import 'project/tools';
+@import 'settings';
+
+// ITCSS: Settings
+
+// ITCSS: Generic
+@import 'project/fonts';
+
+// ITCSS: Base
+@include foundation-global-styles;
+@include foundation-typography-base;
+@import 'project/global';
+@import 'project/icons';
+
+// ITCSS: Objects
+@include foundation-typography-helpers;
+@include foundation-text-alignment;
+@include foundation-print-styles;
+@include foundation-visibility-classes;
+@include foundation-flex-classes;
+@import 'utils/objects/__objects';
+@import 'project/objects';
+
+// ITCSS: Components
+@include foundation-xy-grid-classes;
+@include foundation-button;
+@include foundation-dropdown;
+@include foundation-menu;
+@include foundation-accordion-menu;
+@include foundation-dropdown-menu;
+@include foundation-forms;
+@import 'slick-carousel/slick/slick.scss';
+@import 'components/__components';
+
+// ITCSS: Trumps
+@import 'utils/trumps/__trumps';

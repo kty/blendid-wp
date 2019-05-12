@@ -13,18 +13,18 @@
   },
 
   "javascripts": {
-    "src": "javascripts",
-    "dest": "javascripts"
+    "src": "js",
+    "dest": "js"
   },
 
   "stylesheets": {
-    "src": "stylesheets",
-    "dest": "stylesheets"
+    "src": "scss",
+    "dest": "css"
   },
 
   "images": {
-    "src": "images",
-    "dest": "images"
+    "src": "img",
+    "dest": "img"
   },
 
   "fonts": {
@@ -34,6 +34,6 @@
 
   "icons": {
     "src": "icons",
-    "dest": "images"
+    "dest": "img"
   }
 }

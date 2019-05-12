@@ -1,0 +1,110 @@
+//
+// 2-column layout with columns switching their place every other row.
+//
+// Uses flexbox for layout, with a fallback based on floats and Foundation's grid.
+// Depends on Fonudation and Modernizr (for detecting flexbox support).
+//
+// HTML:
+// <div class="XXX">
+//    <div class="XXX__section">...</div>
+//    <div class="XXX__section">...</div>
+// </div>
+// 
+// @param  {array} $sizes: (6, 6)        Sizes of columns. Can add up to whatever you want.
+// 										  Will be used for column widths in fallback layout.
+// @param  {string} $base:  null          [Optional] Base class. '__section' will be appended to this.
+// 										  Defaults to &. Useful when you want to use the mixin inside 
+// 										  a modifier class.
+//
+@mixin alternating-cols($sizes: (6, 6), $base: null) {
+	@if $base == null {
+		$base: &;
+	}
+	$size-1: nth($sizes, 1);
+	$size-2: nth($sizes, 2);
+	$total-size: $size-1 + $size-2;
+
+	@include grid-row($total-size) {
+		#{$base} {
+			&__section:first-child {
+				margin-bottom: space(2);
+				text-align: center;
+
+				@include breakpoint(medium) {
+
+					@include grid-column($size-1);
+					text-align: left;
+
+					margin-bottom: 0;
+				}
+			}
+
+			&__section:last-child {
+				@include breakpoint(medium) {
+					@include grid-column($size-2);
+				}
+			}
+		}
+
+		// We're using nth-of-type and not nth-child e.g.
+		// in case we want to use <hr> between each item
+		&:nth-of-type(2n+1) {
+			#{$base} {
+				&__section:first-child {
+					@include breakpoint(medium) {
+						@include grid-col-pos($size-2);
+						text-align: right;
+					}
+				}
+				&__section:last-child {
+					@include breakpoint(medium) {
+						@include grid-col-pos(-1 * $size-1);
+					}
+				}
+			}
+		}
+	}
+
+	.flexbox &,
+	.flexboxlegacy & {
+
+		@include breakpoint(medium) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			align-content: center;
+		}
+
+		#{$base} {
+			
+			&__section {
+
+				// Remove grid styles
+				&,
+				&:nth-of-type(2n+1),
+				&:last-child {
+					float: none !important;
+					left: auto;
+					width: auto;
+				}
+
+				&:first-child {
+					flex-basis: ($size-1 / $total-size) * 100%;
+				}
+				&:last-child {
+					flex-basis: ($size-2 / $total-size) * 100%;
+				}
+			}
+
+		}
+
+		&:nth-of-type(2n+1) {
+			#{$base} {
+				&__section:first-child {
+					order: 1;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+body {
+	display: flex;
+	flex-direction: column;
+	min-width: $min-width;
+	min-height: 100vh;
+}
+
+main {
+	// Grow to fill available space = sticky footer
+	flex: 1 0 auto;
+}
+
+small {
+	font-size: 0.75em;
+}
+
+li {
+	@include space('margin-bottom', 1);
+}
+
+// Reset Firefox's default styling 
+input::placeholder, textarea::placeholder {
+	opacity: 1;
+}
+
+::-moz-selection { background: $primary-color; }
+::selection      { background: $primary-color; }

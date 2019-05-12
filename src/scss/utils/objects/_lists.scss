@@ -1,0 +1,36 @@
+//
+// Resets list's style, margin and padding.
+//
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+//
+// Removes dots from the .list--dotted.
+//
+@mixin undot-list {
+    li:before {
+        content: none;
+    }
+}
+
+%reset-list {
+    @include reset-list;
+}
+
+.reset-list {
+    @extend %reset-list;
+}
+
+@mixin inline-list {
+    @include reset-list;
+    li {
+        display: inline-block;
+    }
+}
+
+.inline-list {
+    @include inline-list;
+}

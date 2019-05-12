@@ -1,0 +1,58 @@
+$two-column-layout-breakpoint: 768px !default;
+
+// Removes default styling of <a>
+@mixin unlink($reset-color: true) {
+	box-shadow: none;
+	@if $reset-color {
+		color: inherit;
+	}
+
+	&:hover, &:focus {
+		box-shadow: none;
+		@if $reset-color {
+			color: inherit;
+		}
+	}	
+}
+
+//Default styling for a link.
+@mixin link-base($underline-color: $primary-color, $underline-hover-color: $pink) {
+	box-shadow: inset 0 -0.1em 0 $underline-color;
+	transition: .6s $easeOutQuint;
+	transition-property: background-color, box-shadow, color;
+	
+	color: inherit;
+
+	&:hover, &:focus {
+		box-shadow: inset 0 -1.3em $underline-hover-color;
+		transition-timing-function: $easeOutExpo;
+		transition-duration: .4s;
+	}
+}
+
+//When you just want to change colors for a link.
+@mixin link-theme($underline-color: $primary-color, $underline-hover-color: $pink) {
+	box-shadow: inset 0 -0.1em 0 $underline-color;
+
+	&:hover, &:focus {
+		box-shadow: inset 0 -1.3em $underline-hover-color;
+	}
+}
+
+// Make a 2 column layout on wider viewports
+@mixin medium-two-column {
+
+	@include breakpoint($two-column-layout-breakpoint) {
+
+		@supports (column-count: 2) {
+			// In case any max-width was applied by .limit-width
+			max-width: none;
+		}
+		column-count: 2;
+		column-gap: map-get($grid-margin-gutters, medium);
+	}
+
+	@include breakpoint(large) {
+		column-gap: map-get($grid-margin-gutters, large);
+	}
+}

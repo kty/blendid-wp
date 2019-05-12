@@ -1,5 +1,5 @@
 {
-  "name": "blendid-wp",
+  "name": "zp",
   "version": "1.0.0",
   "author": "alexanderalmstrom <info@alexanderalmstrom.com>",
   "license": "MIT",
@@ -8,14 +8,20 @@
     "build": "yarn run blendid -- build"
   },
   "dependencies": {
-    "blendid": "^4.3.1",
+    "blendid": "^4.5.0",
     "bootstrap": "4.0.0-alpha.6",
     "bourbon": "^5.0.0",
     "font-awesome": "^4.7.0",
+    "foundation-sites": "^6.5.3",
     "i18next": "^10.2.2",
+    "jquery-easing": "^0.0.1",
     "jquery-validation": "^1.17.0",
     "jquery.scrollto": "^2.1.2",
+    "lazysizes": "^5.0.0-rc2",
+    "picturefill": "^3.0.3",
     "slick-carousel": "^1.6.0",
-    "tooltipster": "^4.2.5"
+    "svg4everybody": "^2.1.9",
+    "tooltipster": "^4.2.5",
+    "what-input": "^5.2.1"
   }
 }

@@ -1,0 +1,15 @@
+@mixin distribute-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.distribute-row {
+	@include distribute-row;
+}
+
+.small-distribute-row {
+	@include breakpoint(small only) {
+		@include distribute-row;
+	}
+}

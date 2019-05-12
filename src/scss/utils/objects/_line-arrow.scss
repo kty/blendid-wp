@@ -1,0 +1,58 @@
+.line-arrow {
+
+	$width: 20px;
+
+	$diag: $width * 1.41421;
+
+	&,
+	&-left {
+		position: relative;
+
+		display: inline-block;
+
+		width:  $width;
+		height: 2 * $width;
+
+		&:before,
+		&:after {
+			content: '';
+
+			position: absolute;
+			top: $width;
+			right: 0;
+			
+			display: block;
+			width: $diag;
+			height: 1px;
+			border-top: 1px solid #000;
+			transform-origin: center right;
+
+		}
+	}
+
+	&:before {
+		transform: rotate(45deg);
+	}
+
+	&:after {
+		transform: rotate(-45deg);
+	}
+
+	&-left {
+
+		&:before,
+		&:after {
+			left: 0;
+			transform-origin: center left;
+		}
+
+		&:before {
+			transform: rotate(-45deg);
+		}
+
+		&:after {
+			transform: rotate(45deg);
+		}
+
+	}
+}

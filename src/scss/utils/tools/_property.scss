@@ -1,0 +1,56 @@
+// Helper for generating rules for every breakpoint for a given property.
+// Depends on Foundation's breakpoint mixin.
+//
+// Example:
+//
+// .a {
+//   @include responsive-property('height', (
+//     small:  16px,
+//     medium: 32px,
+//     large:  64px
+//   ));
+// }
+//
+// Will result in:
+//
+// .a {
+//  height: 16px;
+//  @include breakpoint(medium) {
+//    height: 32px;
+//  }
+//  @include breakpoint(large) {
+//    height: 64px;
+//  }
+// }
+//
+// @param $property Property to apply the value to. 'height', 'margin' etc.
+// @param $values   Map of values for every breakpoint. E.g.:
+//                  $values: (
+//                    small:  16px,
+//                    medium: 32px,
+//                    large:  64px
+//                  );
+// @param $factor   (Optional) factor by which to multiply the values.
+//                  E.g. you need a negative value, pass -1.
+@mixin responsive-property($property, $values, $factor: null) {
+
+  @if type-of($values) != 'map' {
+
+    #{$property}: $values;
+
+  } @else {
+
+    @each $breakpoint, $value in $values {
+      @include breakpoint($breakpoint) {
+
+        @if $factor != null {
+          $value: $factor * $value;
+        }
+
+        #{$property}: $value;
+      }
+    }
+
+  }
+
+}

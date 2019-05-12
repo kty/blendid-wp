@@ -1,0 +1,47 @@
+//
+// Color mixing shortcuts for easy creation of lighter/darker variants of a color
+//
+@function lighter($color, $amount:30) {
+    @if type-of($color) != color {
+        @return $color;
+    }
+    @return mix(#fff, $color, $amount);
+}
+
+@function darker($color, $amount:30) {
+    @if type-of($color) != color {
+        @return $color;
+    }
+    @return mix(#000, $color,$amount);
+}
+
+//
+// Computes the color's perceived brightness.
+// Brightness is similiar to lightness in HSL but more closely approximates how humans perceive the intensity of the different RGB components of a color. Brightness is sometimes called luminance.
+// Returns a number between 0% and 100%, where 100% is fully bright (white) and 0% is fully dark (black) for color values.
+// For numbers and percentages it returns the same value to be used in @include filter(brightness(1.1)).
+// (copied from Compass)
+//
+//
+@function brightness($color) {
+    @if type-of($color) == color {
+        @return (red($color) * 0.299 + green($color) * 0.587 + blue($color) * 0.114) / 255 * 100%;
+    } @else {
+        @return unquote("brightness(#{$color})");
+    }
+}
+
+//
+// Calculates the contrasting color on the given color's perceived brightness
+// (setting a darker color for light ones and vice versa).
+//
+// @param  {color} $color
+// @param  {int} $amount:30   Strength of effect. Can be anywhere from 0 to 100, where 0 will return the same color and 100 will return full white (for dark colors) or full black (for light ones).
+// @return {color}
+//
+@function contrasting($color, $amount:30) {
+    @if type-of($color) != color {
+        @return $color;
+    }
+    @return if(brightness($color) > 50%, darker($color, $amount), lighter($color, $amount));
+}

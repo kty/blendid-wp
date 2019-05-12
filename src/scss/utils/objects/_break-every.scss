@@ -1,0 +1,18 @@
+//
+// Breaks a row every n items.
+// @param  {number} $n
+//
+@mixin break-every($n) {
+	float: left;
+
+	&:nth-child(#{$n}n + 1 ) {
+		clear: both;
+	}
+}
+
+// Generate helper classes
+@for $i from 2 through 4 {
+	.break-every-#{$i} > * {
+		@include break-every($i);
+	}
+}

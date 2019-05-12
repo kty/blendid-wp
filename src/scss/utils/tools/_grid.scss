@@ -1,0 +1,32 @@
+// Use with Foundation's grid.
+
+
+// Add double padding for a row.
+// Example:
+// .row:not(.collapse):not(.small-collapse) {
+//		@include grid-add-padding-for(small);
+//	}
+//
+@mixin grid-add-padding-for($breakpoint, $gutter: null) {
+
+	@if $gutter == null {
+		$gutter: map-get($grid-column-gutter, nth($breakpoint, 1));
+	}
+
+	&:not(.collapse) {
+		@include breakpoint($breakpoint) {
+			padding-left:  $gutter / 2;
+			padding-right: $gutter / 2;
+
+			&.column {
+				padding-left:  $gutter;
+				padding-right: $gutter;
+			}
+
+			.row {
+				margin-left:  -$gutter;
+				margin-right: -$gutter;
+			}
+		}	
+	}
+}

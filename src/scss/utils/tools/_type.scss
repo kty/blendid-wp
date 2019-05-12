@@ -1,0 +1,22 @@
+// Type-related mixins.
+///////////////////////////////////////////////////////////
+
+// Helper for Foundation's type system.
+// 
+// Based on Foundation's $header-sizes, set
+// font-size across various breakpoints.
+// 
+// e.g. if you want something to have a font-size of h3:
+// @include set-font-size-of-header(h3).
+// 
+@mixin set-font-size-of-header($header) {
+	@if variable-exists(header-sizes) {
+		@each $b, $sizes in $header-sizes {
+			@include breakpoint($b) {
+				font-size: rem-calc(map-get($sizes, 'h3'));
+			}
+		}
+	} @else {
+		@error 'Can\'t use set-font-size-of-header mixin because $header-sizes doesn\'t exist.'
+	}
+}

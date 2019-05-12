@@ -1,0 +1,53 @@
+.d-i {
+	display: inline !important;
+}
+
+.d-b {
+	display: block !important;
+}
+
+.d-ib {
+    display: inline-block !important;
+}
+
+.d-it {
+    display: inline-table !important;
+}
+
+.d-t {
+    display: table !important;
+}
+
+.d-tr {
+	display: table-row !important;
+}
+
+.d-tc {
+	display: table-cell !important;
+}
+
+.fl-l {
+    float: left !important;
+}
+
+.fl-r {
+    float: right !important;
+}
+
+.fl-n {
+    float: none !important;
+}
+
+.va-m {
+    vertical-align: middle;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.small-only-w-100 {
+    @include breakpoint(small only) {
+        width: 100% !important;
+    }
+}

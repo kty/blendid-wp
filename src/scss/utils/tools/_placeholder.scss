@@ -1,0 +1,43 @@
+//
+// Shortcuts for styling input placeholders.
+// Comes in 2 versions:
+//
+// base-placeholder-style: for styling all input placeholders
+// placeholder-style:      for styling a placeholder for a particular input
+//
+// Example:
+// @include base-placeholder-style {
+//    color: #999;
+//    font-style: italic;
+// }
+//
+// .special-input {
+//    @include placeholder-style {
+//        color: red;
+//    }
+// }
+//
+//
+
+// Global placeholder style
+@mixin base-placeholder-style($classes: false) {
+
+    ::-webkit-input-placeholder { @content; } // WebKit browsers
+    :-moz-placeholder           { @content; } // Mozilla Firefox 4 to 18
+    ::-moz-placeholder          { @content; } // Mozilla Firefox 19+
+    :-ms-input-placeholder      { @content; } // Internet Explorer 10+
+
+    @if $classes {
+        #{$classes} {
+            @content;
+        }
+    }
+}
+
+// Placeholder style for a particular input
+@mixin placeholder-style {
+    &::-webkit-input-placeholder { @content; } // WebKit browsers
+    &:-moz-placeholder           { @content; } // Mozilla Firefox 4 to 18
+    &::-moz-placeholder          { @content; } // Mozilla Firefox 19+
+    &:-ms-input-placeholder      { @content; } // Internet Explorer 10+
+}

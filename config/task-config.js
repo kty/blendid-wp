@@ -16,7 +16,7 @@ module.exports = {
       app: ["./app.js"]
     },
 
-    publicPath: '/wp-content/themes/blendid-wp/public/javascripts',
+    publicPath: '/wp-content/themes/blendid-wp/public/js',
 
     provide: {
       $: "jquery",
@@ -31,19 +31,15 @@ module.exports = {
   stylesheets: {
     sass: {
       "includePaths": [
-        "./node_modules/bourbon/core",
-        "./node_modules/bootstrap/scss",
-        "./node_modules/slick-carousel/slick",
-        "./node_modules/font-awesome/scss",
-        "./node_modules/tooltipster/src/css",
-        "./node_modules/tooltipster/src/css/plugins/tooltipster/sideTip"
+        "./node_modules"
       ]
     }
   },
 
   browserSync: {
-    proxy: "blendid-wp.test",
-    files: ["templates", "inc"]
+    proxy: "zp.local",
+    files: ["templates", "templates/views", "inc"],
+    ghostMode: false
   },
 
   production: {

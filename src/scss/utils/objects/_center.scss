@@ -1,0 +1,91 @@
+//
+// Helper classes for centering things.
+//
+
+//
+// Centers element both horizontally and vertically.
+// Remember to set positioning context on parent (`position` other than `static`).
+//
+ @mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }
+
+.center {
+    @include center;
+}
+
+@mixin block-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block-center {
+    @include block-center;
+}
+
+//
+// Taken from https://github.com/at-import/toolkit
+//
+// Vertically center anything, literally anything.
+// http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+@mixin vertical-center($position:absolute, $midpoint: null) {
+    $midpoint: if($midpoint != null, $midpoint, 50%);
+    top: $midpoint;
+    @include vertical-center-core($position);
+}
+
+@mixin vertical-center-core($position:absolute) {
+    position: $position;
+    transform: translateY(-50%);
+}
+
+.vcenter {
+    @include vertical-center;
+}
+
+@mixin horizontal-center($position:absolute, $midpoint: null) {
+    $midpoint: if($midpoint != null, $midpoint, 50%);
+    left: $midpoint;
+    @include horizontal-center-core($position);
+}
+
+@mixin horizontal-center-core($position:absolute) {
+    position: $position;
+    transform: translateX(-50%);
+}
+
+@mixin responsive-center {
+    @each $size in $breakpoint-classes {
+        @include breakpoint(bp($size)) {
+            @if $size != 'small' {
+                .#{$size}-hcenter {
+                    @include horizontal-center;
+                }
+                .#{$size}-vcenter {
+                    @include vertical-center;
+                }
+            }
+        }
+    }
+}
+
+.hcenter {
+    @include horizontal-center;
+}
+
+// @include responsive-center;
+
+//
+// Vertical centering using tables
+//
+@mixin vcenter-table {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.vcenter-table {
+    @include vcenter-table;
+}

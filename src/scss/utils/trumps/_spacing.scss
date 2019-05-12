@@ -1,0 +1,78 @@
+// Depends on utils/objects/spacing
+
+// Generate responsive .nomargin and .nopadding classes:
+// .medium-nomargin, .large-nopadding etc.
+@each $size in $breakpoint-classes {
+    @include breakpoint($size) {
+        @each $property in (margin, padding) {
+            @if $size != 'small' {
+                .#{$size}-no#{$property} {
+                    #{$property}: 0 !important;
+                }
+            }
+            @else {
+                .no#{$property} {
+                    #{$property}: 0 !important;
+                }
+    
+                .small-only-no#{$property} {
+                    @include breakpoint(small only) {
+                        #{$property}: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mar-t0 {
+    margin-top: 0 !important;
+}
+
+.mar-b0 {
+    margin-bottom: 0 !important;
+}
+
+.mar-tb0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.mar-l0 {
+    margin-left: 0 !important;
+}
+
+.mar-r0 {
+    margin-right: 0 !important;
+}
+
+.mar-lr0 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.pad-t0 {
+    padding-top: 0 !important;
+}
+
+.pad-b0 {
+    padding-bottom: 0 !important;
+}
+
+.pad-tb0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.pad-l0 {
+    padding-left: 0 !important;
+}
+
+.pad-r0 {
+    padding-right: 0 !important;
+}
+
+.pad-lr0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

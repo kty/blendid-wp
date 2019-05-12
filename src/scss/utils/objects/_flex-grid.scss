@@ -1,0 +1,133 @@
+// Flex grid from Foundation.
+// Use when you need both classic and flex grids together.
+///////////////////////////////////////////////////////////
+
+.flexbox {
+	// Row
+	.flex-row {
+	    @include flex-grid-row;
+	    // Nesting behavior
+	    & & {
+	        @include flex-grid-row(nest, $base: false);
+	    }
+	    // Expanded row
+	    &.expanded {
+	        max-width: none;
+	    }
+	    &.collapse {
+	        > .flex-column {
+	            @include grid-col-collapse;
+	        }
+	    }
+	}
+
+	// Column
+	.flex-column {
+	    @include flex-grid-column;
+	}
+
+	// Column row
+	// The double .row class is needed to bump up the specificity
+	.flex-column.flex-row.flex-row {
+	    float: none;
+	    display: block;
+	    // To properly nest a column row, padding and margin is removed
+	    .flex-row & {
+	        padding-left: 0;
+	        padding-right: 0;
+	        margin-left: 0;
+	        margin-right: 0;
+	    }
+	}
+
+	@include -zf-each-breakpoint {
+	    @for $i from 1 through $grid-column-count {
+	        // Sizing (percentage)
+	        .#{$-zf-size}-#{$i} {
+	            flex: flex-grid-column($i);
+	            max-width: grid-column($i);
+	        }
+	        // Offsets
+	        $o: $i - 1;
+	        .#{$-zf-size}-offset-#{$o} {
+	            @include grid-column-offset($o);
+	        }
+	    }
+	    // Source ordering
+	    @for $i from 1 through 6 {
+	        .#{$-zf-size}-order-#{$i} {
+	            @include flex-order($i);
+	        }
+	    }
+	    // Block grid
+	    @for $i from 1 through $block-grid-max {
+	        .#{$-zf-size}-up-#{$i} {
+	            @include flex-grid-layout($i);
+	        }
+	    }
+	    @if $-zf-size !=$-zf-zero-breakpoint {
+	        // Sizing (expand)
+	        @include breakpoint($-zf-size) {
+	            .#{$-zf-size}-expand {
+	                flex: flex-grid-column();
+	            }
+	        }
+	        // Auto-stacking/unstacking
+	        @at-root (without: media) {
+	            .flex-row.#{$-zf-size}-unstack {
+	                > .flex-column {
+	                    flex: flex-grid-column(100%);
+	                    @include breakpoint($-zf-size) {
+	                        flex: flex-grid-column();
+	                    }
+	                }
+	            }
+	        }
+	    }
+	    // Responsive collapsing
+	    .#{$-zf-size}-collapse {
+	        > .flex-column {
+	            @include grid-col-collapse;
+	        }
+	    }
+	    .#{$-zf-size}-uncollapse {
+	        $gutter: -zf-get-bp-val($grid-column-gutter, $-zf-size);
+	        > .flex-column {
+	            @include grid-col-uncollapse($gutter);
+	        }
+	    }
+
+        // Remove 'classic' grid's source ordering classes
+        // (use .medium-order-2 etc. classes instead)
+	    @for $i from 1 through $grid-column-count {
+	      @if $i < $grid-column-count {
+	        .flex-column.#{$-zf-size}-push-#{$i},
+	        .flex-column.#{$-zf-size}-pull-#{$i} {
+	        	#{$global-left}: 0;
+	         	// @include grid-col-unpos;
+	        }
+	      }
+	  	}
+	}
+
+	// Sizing (shrink)
+	.shrink {
+	    flex: flex-grid-column(shrink);
+	    max-width: 100%;
+	}
+
+	// Vertical alignment using align-items and align-self
+	// Remove these in 6.3
+	@each $vdir,
+	$prop in $-zf-flex-align {
+	    .flex-column.align-#{$vdir} {
+	        @include flex-align-self($vdir);
+	    }
+	}
+
+	.flex-columns {
+	    // scss-lint:disable PlaceholderInExtend
+	    @extend .flex-column;
+	}
+	
+}

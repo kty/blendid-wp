@@ -1,0 +1,14 @@
+// from http://codepen.io/alexandredees/pen/ojaFr
+
+.center-float {
+    float: right;
+
+    position: relative;
+    left: -50%;
+    text-align: left;
+
+    > * {
+        position: relative;
+        left: 50%;
+    }
+}

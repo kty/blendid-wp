@@ -1,0 +1,73 @@
+@for $i from 1 through 6 {
+    .h#{$i} {
+        @extend h#{$i} !optional;
+    }
+}
+
+.ff-body {
+    font-family: $body-font-family;
+}
+
+.fw-3 {
+    font-weight: 300 !important;
+}
+
+.fw-n {
+    font-weight: normal !important;
+}
+
+.fw-b {
+    font-weight: bold !important;
+}
+
+.fw-9 {
+    font-weight: 900 !important;
+}
+
+.fz-body {
+    font-size: 1rem !important;
+}
+
+.lh-1 {
+    line-height: 1 !important;
+}
+
+.ls-n {
+    letter-spacing: 0 !important;
+}
+
+.ta-c {
+    text-align: center !important;
+}
+
+.ta-l {
+    text-align: left !important;
+}
+
+.ta-r {
+    text-align: right !important;
+}
+
+.tt-n {
+    text-transform: none !important;
+}
+
+.tt-u {
+    text-transform: uppercase !important;
+}
+
+.dir-rtl {
+    direction: rtl !important;
+}
+
+.dir-ltr {
+    direction: ltr !important;
+}
+
+.dir-initial {
+    direction: initial !important;
+}
+
+.nowrap {
+    white-space: nowrap !important;
+}

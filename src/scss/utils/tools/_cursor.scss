@@ -1,0 +1,6 @@
+@mixin cursor($path,$fallback: auto) {
+    cursor: url("#{$path}.png"), url("#{$path}.cur"), $fallback; /* IE + Edge (no positioning support) */
+    cursor: url("#{$path}.png") 0 0, $fallback; /* Legacy */
+    cursor: url("#{$path}.svg") 0 0, $fallback; /* FF */
+    cursor: -webkit-image-set(url("#{$path}.png") 1x, url("#{$path}@2x.png") 2x) 0 0, pointer; /* Webkit */
+}

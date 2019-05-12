@@ -1,0 +1,46 @@
+@mixin default-shadow {
+	box-shadow: 0 8px 16px 0 rgba(52,56,84,0.12);
+}
+
+.shadow {
+	@include default-shadow;
+}
+
+.fz-7 {
+	font-size: 14px;
+}
+
+.fz-8 {
+	font-size: 12px;
+}
+
+.limit-width-narrow {
+	max-width: 28em;
+}
+
+.slide-in {
+
+	position: relative;
+	top: 50px;
+	opacity: 0;
+	transition: 3s $easeOutExpo;
+	transition-property: top, opacity;
+
+	&.is-in-viewport {
+		top: 0;
+		opacity: 1;
+	}
+
+}
+
+.fade-in {
+
+	opacity: 0;
+	transition: 3s $easeOutExpo;
+	transition-property: opacity;
+
+	&.is-in-viewport {
+		opacity: 1;
+	}
+
+}

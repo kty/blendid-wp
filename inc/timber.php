@@ -41,7 +41,7 @@ class BlendidStarter extends TimberSite {
   function add_to_context( $context ) {
     $context['menu'] = new TimberMenu();
     $context['site'] = $this;
-    $context['icons_path'] = \App\asset_path( 'images/icons.svg' );
+    $context['icons_path'] = \App\asset_path( 'img/icons.svg' );
 
     return $context;
   }

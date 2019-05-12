@@ -1,0 +1,57 @@
+// TODO: Are we using the m value at all?
+$letter-spacing: (
+	m: 0.025em,
+	l: 0.15em
+) !default;
+
+.ff-body {
+	font-family: $body-font-family;
+}
+
+.ff-header {
+	font-family: $header-font-family;
+}
+
+.ff-ultralight {
+	font-family: $ultralight-font-family;
+}
+
+.ls-medium {
+    letter-spacing: map-get($letter-spacing, m);
+}
+
+.ls-loose {
+    letter-spacing: map-get($letter-spacing, l);
+}
+
+.fz-0 {
+	font-size: 52px;
+
+	@include breakpoint(medium) {
+		font-size: 60px;
+	}
+	
+	@include breakpoint(large) {
+		font-size: 80px;
+	}
+
+}
+
+//Requires Foundation
+@each $breakpoint, $breakpoint-styles in $header-styles {
+
+	@include breakpoint($breakpoint) {
+
+		$i: 1;
+		@each $header, $styles in $breakpoint-styles {
+			.fz-#{$i} {
+				@each $prop, $val in $styles {
+					@if $prop == 'font-size' {
+						font-size: $val * 1px;
+					}
+				}
+			}
+			$i: $i + 1;
+		}
+	}
+}

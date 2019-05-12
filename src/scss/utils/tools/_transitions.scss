@@ -1,0 +1,56 @@
+// Not declaring as !default, because the property of the same is already defined in Compass and would overwrite the value here.
+// We could make it !default once we get rid of all Compass dependencies.
+$transition-duration: 0.08s;
+// A bit slower for hoverout, focusout etc.
+$transition-out-duration: 0.25s !default;
+$transition-easing: ease-out !default;
+
+// Constants for common easing functions
+$easing-in-out:    cubic-bezier(0.76, 0, 0,     1);
+$easing-expo:      cubic-bezier(0,    1, 0.22, 1);
+$easing-out-quart: cubic-bezier(0.23, 1, 0.32, 1);
+$easing-in-out-back: cubic-bezier(0.830, -0.180, 0.250, 1.205);
+
+//
+// Default transition shortcut.
+//
+// Optionally pass properties to animate (all by default):
+//      @include transition(color);
+//
+// If you want to pass multiple properties, wrap them in list:
+//      @include transition((color,background-color,box-shadow),.5s);
+//
+// For clickable elements use the clickable-transition mixin below.
+//
+//
+@mixin transition($properties:all, $duration: $transition-duration, $easing: $transition-easing) {
+    @if length($properties) > 1 {
+        transition-property: $properties;
+        transition-duration: $duration;
+        transition-timing-function: $easing;
+    } @else {
+        transition: $properties $duration $easing;
+    }
+}
+
+//
+// Default transition for clickable elements.
+// Transition on hover is a bit faster than on hover out.
+//
+// Allows passing additional styles on hover/focus/active state through @content:
+//
+//      @include clickable-transition {
+//          border-color: red;
+//      }
+//
+//
+@mixin clickable-transition($properties:all, $classes:null) {
+
+    @include transition($properties, $transition-out-duration);
+
+    @include hover($classes) {
+        transition-duration: 0s;
+        @content;
+    }
+
+}

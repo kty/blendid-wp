@@ -1,0 +1,12 @@
+
+@import 'app';
+
+// Fix for TinyMCE expanding on its own on load and when clicking inside
+html, body#tinymce {
+    min-height: unset;
+    height: inherit !important;
+}
+
+body#tinymce {
+    margin: 24px;
+}

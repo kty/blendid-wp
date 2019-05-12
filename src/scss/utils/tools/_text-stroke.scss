@@ -1,0 +1,12 @@
+@mixin text-stroke($color) {
+	// WebKit (Safari/Chrome) Only
+	// -webkit-text-stroke: 1px $color;
+	  
+	text-shadow:
+		// Simulated effect for Firefox and Opera
+		// and nice enhancement for WebKit
+		-1px -1px 0 $color,
+		1px -1px 0 $color,
+		-1px  1px 0 $color,
+		1px  1px 0 $color;
+}

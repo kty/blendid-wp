@@ -1,0 +1,29 @@
+// Modified text alignment helper classes from Foundation 6.
+// 
+// F6 doesn't support configurations like class="text-center medium-text-left":
+// here text would always be centered, because .text-center comes later in source
+// than .medium-text-left, and the latter's media query doesn't add to the rule's
+// specificity.
+// 
+// In following modified version we first define all base .text-XXX classes first,
+// followed by all "media-queried" classes.
+
+$type-alignments: (left, right, center, justify);
+
+@each $align in $type-alignments {
+  .text-#{$align} {
+    text-align: $align;
+  }
+}
+
+@each $align in $type-alignments {
+  @each $breakpoint in $breakpoints {
+    @include breakpoint($breakpoint) {
+      @if $breakpoint != 'small' {
+        .#{$breakpoint}-text-#{$align} {
+          text-align: $align;
+        }
+      }
+    }
+  }
+}

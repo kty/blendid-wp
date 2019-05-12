@@ -1,0 +1,39 @@
+// Depends on tools/spacing
+
+$spacing: (
+	small: rem-calc(5),
+	medium: rem-calc(7.5),
+	large: rem-calc(10)
+) !default;
+
+$spacing-levels: 8 !default;
+
+@for $i from 1 through $spacing-levels {
+    .mar-lv#{$i} {
+        @include space(margin, $i);
+    }
+
+    .pad-lv#{$i} {
+        @include space(padding, $i);
+    }
+}
+
+@for $i from 1 through $spacing-levels {
+    .mb-lv#{$i} {
+        @include space(margin-bottom, $i);
+    }
+
+    .pb-lv#{$i} {
+        @include space(padding-bottom, $i);
+    }
+}
+
+@for $i from 1 through $spacing-levels {
+    .mt-lv#{$i} {
+        @include space(margin-top, $i);
+    }
+
+    .pt-lv#{$i} {
+        @include space(padding-top, $i);
+    }
+}

@@ -1,0 +1,50 @@
+//
+// Justify children across available width.
+// Distributes spacing between child elements evenly: first item is aligned to left, last item is aligned to right, and all others are justified.
+//
+// Usage:
+// <div class="justify">
+//    <div class="justify__item">Some element</div>
+//    <span class="justify__item">Some other element</span>
+//    <ul class="justify__item">Yet another element</ul>
+// </div>
+//
+// Can be used inside media queries:
+//
+// <ul class="menu">
+//     <li class="menu__item"> ... </li>
+//     <li class="menu__item"> ... </li>
+//     <li class="menu__item"> ... </li>
+// </ul>
+//
+// .menu {
+//      @media screen and (max-width 400px) {
+//          @include justify;
+//      }
+// }
+//
+//
+
+// Mixin for using e.g. inside media queris
+@mixin justify {
+    text-align: justify;
+    line-height: 0; //remove additional height added by :after element
+
+    &__item {
+        display: inline-block;
+        line-height: $global-line-height;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        vertical-align: top;
+    }
+}
+
+.justify {
+    @include justify;
+}

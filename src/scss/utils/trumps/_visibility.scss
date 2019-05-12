@@ -1,0 +1,23 @@
+.hide-for-medium {
+    @include breakpoint(medium) {
+        display: none !important;
+    }
+}
+
+.hide-for-large {
+    @include breakpoint(large) {
+        display: none !important;
+    }
+}
+
+.show-for-medium {
+    @include breakpoint(small only) {
+        display: none !important;
+    }
+}
+
+.show-for-large {
+    @include breakpoint(medium down) {
+        display: none !important;
+    }
+}

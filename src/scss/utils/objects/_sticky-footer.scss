@@ -1,0 +1,39 @@
+// Sticky footer (fixed height)
+// 
+// Markup:
+// 
+// html
+// 	 body
+// 	   footer
+///////////////////////////////////////////////////////////
+
+$sticky-footer-height: 100px !default;
+
+.sticky-footer {
+
+	&__html {
+		position: relative;
+		min-height: 100%;
+	}
+
+	&__body {
+		margin: 0 0 ( $sticky-footer-height + space(small, 2) );
+
+		@each $breakpoint in (medium, large) {
+			@if map-has-key($spacing, $breakpoint) {
+				@include breakpoint(#{$breakpoint}) {
+					margin-bottom: $sticky-footer-height + space($breakpoint, 2);
+				}
+			}
+		}
+	}
+
+	&__footer {
+	    position: absolute;
+	    left: 0;
+	    bottom: 0;
+	    height: $sticky-footer-height;
+	    width: 100%;
+	}
+	
+}

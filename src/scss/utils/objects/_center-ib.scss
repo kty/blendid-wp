@@ -1,0 +1,26 @@
+// Centering methods using the inline-block technique.
+
+// Parent containing the element being centered.
+@mixin center-ib-parent {
+    text-align: center;
+    //align to middle
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+@mixin center-ib {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.center-ib-parent {
+    @include center-ib-parent;
+}
+
+.center-ib {
+    @include center-ib;
+}

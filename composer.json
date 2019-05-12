@@ -32,6 +32,12 @@
     "php": ">=5.5.0",
     "composer/installers": "~1.0",
     "timber/timber": "1.1.7.1",
-    "Upstatement/routes": "*"
+    "Upstatement/routes": "*",
+    "wpackagist-plugin/advanced-custom-fields":"5.8.0",
+    "wpackagist-plugin/duplicator":"1.3.12",
+    "wpackagist-plugin/google-analytics-dashboard-for-wp":"5.3.8",
+    "wpackagist-plugin/regenerate-thumbnails":"3.1.1",
+    "wpackagist-plugin/timber-library":"1.9.4",
+    "wpackagist-plugin/widont-part-deux":"1.3.1"
   }
 }
